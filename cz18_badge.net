@@ -1,7 +1,7 @@
 (export (version D)
   (design
-    (source "C:\\Users\\IPLogged\\Documents\\KiCad\\CZ18 Badge\\cz18_badge.sch")
-    (date "5/20/2018 11:14:09 PM")
+    (source C:/Users/IPLogged/Git/cz18-badge/cz18_badge.sch)
+    (date "5/21/2018 8:39:46 PM")
     (tool "Eeschema 4.0.7")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -247,16 +247,16 @@
         (pin (num 3) (name VDD) (type power_in))
         (pin (num 4) (name DOUT) (type output)))))
   (libraries
+    (library (logical rfcom)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\rfcom.lib"))
+    (library (logical device)
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib"))
     (library (logical LED)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\LED.lib"))
     (library (logical modules)
       (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\modules.lib"))
     (library (logical skoro_sensors)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\skoro_sensors.lib"))
-    (library (logical device)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\device.lib"))
-    (library (logical rfcom)
-      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\rfcom.lib")))
+      (uri "C:\\Program Files\\KiCad\\share\\kicad\\library\\skoro_sensors.lib")))
   (nets
     (net (code 1) (name "Net-(A1-Pad30)")
       (node (ref R1) (pin 2))

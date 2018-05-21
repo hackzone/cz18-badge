@@ -5,7 +5,7 @@
     (no_connects 34)
     (area 49.924999 29.924999 150.075001 130.075001)
     (thickness 1.6)
-    (drawings 4)
+    (drawings 5)
     (tracks 0)
     (zones 0)
     (modules 16)
@@ -900,6 +900,9 @@
     )
   )
 
+  (gr_text "TODO:\n\n- Finalise PCB design concept\n- Layout components\n- Create VCC and GND planes on front and back of the badge\n- Route traces" (at 186 53) (layer F.Cu)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
+  )
   (gr_line (start 50 130) (end 50 30) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 150 130) (end 50 130) (angle 90) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 150 30) (end 150 130) (angle 90) (layer Edge.Cuts) (width 0.15))
