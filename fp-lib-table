@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name LED_SMD)(type KiCad)(uri "$(KISYSMOD)/LEDs.pretty")(options "")(descr ""))
+)
