@@ -1,4 +1,4 @@
-update=5/20/2018 11:12:36 PM
+update=2018 June 03, Sunday 22:49:04
 version=1
 last_client=kicad
 [pcbnew]
@@ -27,7 +27,7 @@ NetIExt=net
 version=1
 [eeschema]
 version=1
-LibDir=
+LibDir=libraries
 [eeschema/libraries]
 LibName1=power
 LibName2=device
@@ -125,4 +125,5 @@ LibName93=Worldsemi
 LibName94=Xicor
 LibName95=zetex
 LibName96=Zilog
-LibName97=skoro_sensors
+LibName97=libraries/skoro_sensors
+LibName98=libraries/LED
