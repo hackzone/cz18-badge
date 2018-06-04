@@ -96,6 +96,7 @@ LIBS:Xicor
 LIBS:zetex
 LIBS:Zilog
 LIBS:skoro_sensors
+LIBS:cz18_badge-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -414,23 +415,12 @@ Text GLabel 1250 6450 2    60   Input ~ 0
 BUZZ1
 Text GLabel 1250 6900 2    60   Input ~ 0
 BUZZ2
-Text GLabel 8650 5350 0    60   Input ~ 0
+Text GLabel 8650 4950 0    60   Output ~ 0
 BUZZ1
-Text GLabel 8650 5450 0    60   Input ~ 0
+Text GLabel 8650 5050 0    60   Output ~ 0
 BUZZ2
-Text GLabel 9400 3550 0    60   Input ~ 0
+Text GLabel 9500 3550 0    60   Input ~ 0
 VCC
-$Comp
-L R R1
-U 1 1 5B01EE36
-P 9300 3800
-F 0 "R1" V 9380 3800 50  0000 C CNN
-F 1 "0k" V 9300 3800 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 9230 3800 50  0001 C CNN
-F 3 "" H 9300 3800 50  0001 C CNN
-	1    9300 3800
-	1    0    0    -1  
-$EndComp
 $Comp
 L R R2
 U 1 1 5B01EE79
@@ -489,78 +479,257 @@ Wire Wire Line
 Wire Wire Line
 	1100 6900 1250 6900
 Wire Wire Line
-	9300 3650 9600 3650
-Wire Wire Line
-	9300 4050 9300 3950
-Wire Wire Line
 	9600 4050 9600 3950
-Wire Wire Line
-	9450 3550 9450 3650
-Connection ~ 9450 3650
 $Comp
 L VCC #PWR014
 U 1 1 5B01FFB2
-P 9500 3550
-F 0 "#PWR014" H 9500 3400 50  0001 C CNN
-F 1 "VCC" H 9500 3700 50  0000 C CNN
-F 2 "" H 9500 3550 50  0001 C CNN
-F 3 "" H 9500 3550 50  0001 C CNN
-	1    9500 3550
+P 9650 3550
+F 0 "#PWR014" H 9650 3400 50  0001 C CNN
+F 1 "VCC" H 9650 3700 50  0000 C CNN
+F 2 "" H 9650 3550 50  0001 C CNN
+F 3 "" H 9650 3550 50  0001 C CNN
+	1    9650 3550
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9400 3550 9500 3550
-Connection ~ 9450 3550
-Wire Wire Line
-	8900 5350 8650 5350
-Wire Wire Line
-	8650 5450 8900 5450
+	9500 3550 9650 3550
 $Comp
 L NRF24L01_Breakout U1
 U 1 1 5B024791
-P 5950 6800
-F 0 "U1" H 5600 7300 50  0000 L CNN
-F 1 "NRF24L01_Breakout" H 6100 7300 50  0000 L CNN
-F 2 "RF_Modules:nRF24L01_Breakout" H 6100 7400 50  0001 L CIN
-F 3 "" H 5950 6700 50  0000 C CNN
-	1    5950 6800
+P 6350 6800
+F 0 "U1" H 6000 7300 50  0000 L CNN
+F 1 "NRF24L01_Breakout" H 6500 7300 50  0000 L CNN
+F 2 "RF_Modules:nRF24L01_Breakout" H 6500 7400 50  0001 L CIN
+F 3 "" H 6350 6700 50  0000 C CNN
+	1    6350 6800
 	1    0    0    -1  
 $EndComp
 $Comp
 L GNDREF #PWR015
 U 1 1 5B024896
-P 5950 7400
-F 0 "#PWR015" H 5950 7150 50  0001 C CNN
-F 1 "GNDREF" H 5950 7250 50  0000 C CNN
-F 2 "" H 5950 7400 50  0001 C CNN
-F 3 "" H 5950 7400 50  0001 C CNN
-	1    5950 7400
+P 6350 7400
+F 0 "#PWR015" H 6350 7150 50  0001 C CNN
+F 1 "GNDREF" H 6350 7250 50  0000 C CNN
+F 2 "" H 6350 7400 50  0001 C CNN
+F 3 "" H 6350 7400 50  0001 C CNN
+	1    6350 7400
 	1    0    0    -1  
 $EndComp
-Text GLabel 5950 6200 1    60   Input ~ 0
+Text GLabel 6350 6200 1    60   Input ~ 0
 VCC
 $Comp
 L RF_Receiver_433_MHz RF1
 U 1 1 5B0249F1
-P 3850 6300
-F 0 "RF1" H 3850 6950 60  0000 C CNN
-F 1 "RF_Receiver_433_MHz" H 3850 6850 60  0000 C CNN
-F 2 "Sensors:RF_Receiver_433_MHz" H 3950 6300 60  0001 C CNN
-F 3 "" H 3950 6300 60  0000 C CNN
-	1    3850 6300
-	1    0    0    -1  
+P 2950 6600
+F 0 "RF1" H 2950 7250 60  0000 C CNN
+F 1 "RF_Receiver_433_MHz" H 2950 7150 60  0000 C CNN
+F 2 "Sensors:RF_Receiver_433_MHz" H 3050 6600 60  0001 C CNN
+F 3 "" H 3050 6600 60  0000 C CNN
+	1    2950 6600
+	-1   0    0    1   
 $EndComp
 $Comp
 L RF_Transmitter_433_MHz RF2
 U 1 1 5B024A40
-P 3850 7150
-F 0 "RF2" H 3850 7950 60  0000 C CNN
-F 1 "RF_Transmitter_433_MHz" H 3850 7850 60  0000 C CNN
-F 2 "Sensors:RF_Transmitter_433_MHz" H 3850 7150 60  0001 C CNN
-F 3 "" H 3850 7150 60  0000 C CNN
-	1    3850 7150
-	1    0    0    -1  
+P 4000 6450
+F 0 "RF2" H 4000 7250 60  0000 C CNN
+F 1 "RF_Transmitter_433_MHz" H 4000 7150 60  0000 C CNN
+F 2 "Sensors:RF_Transmitter_433_MHz" H 4000 6450 60  0001 C CNN
+F 3 "" H 4000 6450 60  0000 C CNN
+	1    4000 6450
+	-1   0    0    1   
 $EndComp
 Text Notes 7500 2050 0    60   ~ 0
 TODO:\n\n- Add proper 433MHz footprints\n- Add 2x15 developer pin headers for Arduino Nano\n- Choose and connect pins for SK6812 leds\n- Choose and connect pins for NRF module\n- Choose and connect pins for 433 receiver/transmitter\n- Determine amount of tactile switches and place them (6x6x4.3mm)\n- Add battery power supply holes\n- Add bulk capacitor (10-100uF) over battery terminals
+$Comp
+L TSOP323xx U2
+U 1 1 5B14681B
+P 950 2850
+F 0 "U2" H 550 3150 50  0000 L CNN
+F 1 "TSOP323xx" H 550 2550 50  0000 L CNN
+F 2 "Opto-Devices:IRReceiver_Vishay_MOLD-3pin" H 900 2475 50  0001 C CNN
+F 3 "" H 1600 3150 50  0001 C CNN
+	1    950  2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L LD271 D6
+U 1 1 5B14689E
+P 1050 3850
+F 0 "D6" H 1070 3920 50  0000 L CNN
+F 1 "LD271" H 1010 3740 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 1050 4025 50  0001 C CNN
+F 3 "" H 1000 3850 50  0001 C CNN
+	1    1050 3850
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 5B14695C
+P 1750 2700
+F 0 "R1" V 1830 2700 50  0000 C CNN
+F 1 "10k" V 1750 2700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 1680 2700 50  0001 C CNN
+F 3 "" H 1750 2700 50  0001 C CNN
+	1    1750 2700
+	-1   0    0    1   
+$EndComp
+Text GLabel 1550 2650 1    60   Input ~ 0
+VCC
+Wire Wire Line
+	1350 2650 1650 2650
+Wire Wire Line
+	1750 2550 1650 2550
+Wire Wire Line
+	1650 2550 1650 2650
+Connection ~ 1550 2650
+Wire Wire Line
+	1350 2850 1950 2850
+Text GLabel 1950 2850 2    60   Output ~ 0
+IR_RECV
+Connection ~ 1750 2850
+$Comp
+L GNDREF #PWR016
+U 1 1 5B147254
+P 1550 3050
+F 0 "#PWR016" H 1550 2800 50  0001 C CNN
+F 1 "GNDREF" H 1550 2900 50  0000 C CNN
+F 2 "" H 1550 3050 50  0001 C CNN
+F 3 "" H 1550 3050 50  0001 C CNN
+	1    1550 3050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1550 3050 1350 3050
+Text GLabel 1350 3850 2    60   Input ~ 0
+IR_SEND
+Wire Wire Line
+	1350 3850 1150 3850
+$Comp
+L GNDREF #PWR017
+U 1 1 5B147766
+P 650 3850
+F 0 "#PWR017" H 650 3600 50  0001 C CNN
+F 1 "GNDREF" H 650 3700 50  0000 C CNN
+F 2 "" H 650 3850 50  0001 C CNN
+F 3 "" H 650 3850 50  0001 C CNN
+	1    650  3850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	650  3850 850  3850
+Text GLabel 8650 5150 0    60   Input ~ 0
+IR_RECV
+Text GLabel 8650 4750 0    60   Output ~ 0
+IR_SEND
+Wire Wire Line
+	8900 4750 8650 4750
+Wire Wire Line
+	8900 5150 8650 5150
+$Comp
+L GNDREF #PWR018
+U 1 1 5B148ADE
+P 2750 6450
+F 0 "#PWR018" H 2750 6200 50  0001 C CNN
+F 1 "GNDREF" H 2750 6300 50  0000 C CNN
+F 2 "" H 2750 6450 50  0001 C CNN
+F 3 "" H 2750 6450 50  0001 C CNN
+	1    2750 6450
+	0    1    1    0   
+$EndComp
+$Comp
+L GNDREF #PWR019
+U 1 1 5B148B31
+P 3900 6300
+F 0 "#PWR019" H 3900 6050 50  0001 C CNN
+F 1 "GNDREF" H 3900 6150 50  0000 C CNN
+F 2 "" H 3900 6300 50  0001 C CNN
+F 3 "" H 3900 6300 50  0001 C CNN
+	1    3900 6300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3900 6300 3900 6450
+Wire Wire Line
+	2750 6450 2750 6600
+Wire Wire Line
+	9600 3650 9600 3550
+Connection ~ 9600 3550
+Text GLabel 3050 6450 2    60   Input ~ 0
+VCC
+Wire Wire Line
+	3050 6450 3050 6600
+Text GLabel 4000 6300 1    60   Input ~ 0
+VCC
+Text GLabel 2850 6300 1    60   Output ~ 0
+RF_RECV
+Wire Wire Line
+	2950 6600 2850 6600
+Wire Wire Line
+	2850 6600 2850 6300
+Text GLabel 4200 6300 2    60   Input ~ 0
+RF_SEND
+Wire Wire Line
+	8900 4950 8650 4950
+Wire Wire Line
+	8650 5050 8900 5050
+Text GLabel 8650 4650 0    60   Input ~ 0
+RF_RECV
+Wire Wire Line
+	8650 4650 8900 4650
+Text GLabel 8650 5250 0    60   Input ~ 0
+RF_SEND
+Wire Wire Line
+	8650 5250 8900 5250
+Wire Wire Line
+	4000 6300 4000 6450
+Wire Wire Line
+	4200 6300 4100 6300
+Wire Wire Line
+	4100 6300 4100 6450
+Text GLabel 8650 4850 0    60   Output ~ 0
+LEDS_IN
+Wire Wire Line
+	8650 4850 8900 4850
+Text GLabel 8650 5350 0    60   BiDi ~ 0
+SPI_CE
+Text GLabel 8650 5450 0    60   BiDi ~ 0
+SPI_CS
+Wire Wire Line
+	8650 5350 8900 5350
+Wire Wire Line
+	8900 5450 8650 5450
+Text GLabel 8650 5550 0    60   BiDi ~ 0
+SPI_MOSI
+Text GLabel 8650 5650 0    60   BiDi ~ 0
+SPI_MISO
+Text GLabel 8650 5750 0    60   BiDi ~ 0
+SPI_SCK
+Wire Wire Line
+	8650 5550 8900 5550
+Wire Wire Line
+	8650 5650 8900 5650
+Wire Wire Line
+	8900 5750 8650 5750
+NoConn ~ 5850 7100
+Text GLabel 5750 6500 0    60   BiDi ~ 0
+SPI_MOSI
+Text GLabel 5750 6600 0    60   BiDi ~ 0
+SPI_MISO
+Text GLabel 5750 6700 0    60   BiDi ~ 0
+SPI_SCK
+Text GLabel 5750 6800 0    60   BiDi ~ 0
+SPI_CS
+Text GLabel 5750 7000 0    60   BiDi ~ 0
+SPI_CE
+Wire Wire Line
+	5750 7000 5850 7000
+Wire Wire Line
+	5850 6800 5750 6800
+Wire Wire Line
+	5750 6700 5850 6700
+Wire Wire Line
+	5850 6600 5750 6600
+Wire Wire Line
+	5750 6500 5850 6500
 $EndSCHEMATC
