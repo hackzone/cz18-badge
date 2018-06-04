@@ -37,8 +37,8 @@
       (place A1 62000 -70000 back 180 (PN Arduino_Nano_v3.x))
     )
     (component "Buzzers_Beepers:MagneticBuzzer_ProSignal_ABT-410-RC"
-      (place BZ1 87000 -53000 front 270 (PN Buzzer))
-      (place BZ2 87000 -73000 front 90 (PN Buzzer))
+      (place BZ1 87000 -59000 back 270 (PN Buzzer))
+      (place BZ2 87000 -66000 back 90 (PN Buzzer))
     )
     (component Capacitors_SMD:C_0603_HandSoldering
       (place C1 55000 -78000 front 0 (PN 104))
@@ -58,19 +58,19 @@
       (place R1 55000 -73000 front 180 (PN 10k))
     )
     (component Sensors:RF_Receiver_433_MHz
-      (place RF1 85000 -39000 front 270 (PN "433MHz Receiver"))
+      (place RF1 87000 -40000 back 90 (PN "433MHz Receiver"))
     )
     (component Sensors:RF_Transmitter_433_MHz
-      (place RF2 53340 -38100 front 90 (PN "433MHz Transmitter"))
+      (place RF2 54000 -37000 back 270 (PN "433MHz Transmitter"))
     )
     (component LEDs:LED_D5.0mm
-      (place D6 54000 -56000 front 90 (PN 940nm))
+      (place D6 54000 -55000 back 270 (PN 940nm))
     )
     (component "Opto-Devices:IRReceiver_Vishay_MOLD-3pin"
-      (place U2 54000 -62000 front 270 (PN CHQ1838))
+      (place U2 54000 -65000 back 270 (PN CHQ1838))
     )
     (component RF_Modules:nRF24L01_Breakout
-      (place U1 96000 -34000 front 0 (PN NRF24L01))
+      (place U1 96000 -42000 back 180 (PN NRF24L01))
     )
     (component Battery_Holders:Keystone_2479_3xAAA
       (place BT1 98000 -80000 back 180 (PN Battery))
@@ -667,20 +667,8 @@
       (pins A1-16 U1-5 J1-30)
     )
     (class kicad_default "" 3V3 A0 A1 A2 A3 A4 A5 A6 A7 AREF BUZZ1 BUZZ2 D11
-      D12 D13 D2 D3 D4 D7 D8 GND GNDREF IR_RECV IR_SEND LEDS_IN LEDS_OUT NRF_CE
-      "Net-(A1-Pad1)" "Net-(A1-Pad17)" "Net-(A1-Pad18)" "Net-(A1-Pad19)" "Net-(A1-Pad2)"
-      "Net-(A1-Pad20)" "Net-(A1-Pad21)" "Net-(A1-Pad22)" "Net-(A1-Pad23)"
-      "Net-(A1-Pad24)" "Net-(A1-Pad25)" "Net-(A1-Pad26)" "Net-(A1-Pad27)"
-      "Net-(A1-Pad28)" "Net-(A1-Pad3)" "Net-(A1-Pad30)" "Net-(D1-Pad4)" "Net-(D2-Pad4)"
-      "Net-(D3-Pad4)" "Net-(D4-Pad4)" "Net-(J1-Pad1)" "Net-(J1-Pad10)" "Net-(J1-Pad11)"
-      "Net-(J1-Pad12)" "Net-(J1-Pad13)" "Net-(J1-Pad14)" "Net-(J1-Pad15)"
-      "Net-(J1-Pad16)" "Net-(J1-Pad17)" "Net-(J1-Pad18)" "Net-(J1-Pad19)"
-      "Net-(J1-Pad2)" "Net-(J1-Pad20)" "Net-(J1-Pad21)" "Net-(J1-Pad22)" "Net-(J1-Pad23)"
-      "Net-(J1-Pad24)" "Net-(J1-Pad25)" "Net-(J1-Pad26)" "Net-(J1-Pad27)"
-      "Net-(J1-Pad28)" "Net-(J1-Pad29)" "Net-(J1-Pad3)" "Net-(J1-Pad30)" "Net-(J1-Pad4)"
-      "Net-(J1-Pad5)" "Net-(J1-Pad6)" "Net-(J1-Pad7)" "Net-(J1-Pad8)" "Net-(J1-Pad9)"
-      "Net-(U1-Pad8)" RESET RF_RECV RF_SEND RX SPI_CE SPI_CS SPI_MISO SPI_MOSI
-      SPI_SCK SPI_SS TX VCC VIN
+      D12 D13 D2 D3 D4 D7 D8 GND "Net-(D1-Pad4)" "Net-(D2-Pad4)" "Net-(D3-Pad4)"
+      "Net-(D4-Pad4)" RESET RX TX VCC VIN
       (circuit
         (use_via Via[0-1]_600:400_um)
       )
