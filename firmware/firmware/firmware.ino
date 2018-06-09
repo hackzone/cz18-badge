@@ -22,19 +22,19 @@ void setup() {
     Serial.begin(9600);
 }
 
-//void loop() {
-//  Serial.println("Bump");
-//  chan1.play(NOTE_C6, SQUARE, 255);
-////  chan2.play(NOTE_C6, SQUARE, 255);
-////  chan3.play(NOTE_C6, SQUARE, 255);
+void loop() {
+  Serial.println("Bump");
+  chan1.play(NOTE_C6, SQUARE, 255);
+//  chan2.play(NOTE_C6, SQUARE, 255);
+//  chan3.play(NOTE_C6, SQUARE, 255);
+  delay(500*64);
+//  chan1.play(NOTE_C6, SAW, 255);
 //  delay(500*64);
-////  chan1.play(NOTE_C6, SAW, 255);
-////  delay(500*64);
-//  chan1.play(NOTE_G5, SQUARE, 255);
-////  chan2.play(NOTE_G5, SQUARE, 255);
-////  chan3.play(NOTE_G5, SQUARE, 255);
-//  delay(500*64);
-//}
+  chan1.play(NOTE_G5, SQUARE, 255);
+//  chan2.play(NOTE_G5, SQUARE, 255);
+//  chan3.play(NOTE_G5, SQUARE, 255);
+  delay(500*64);
+}
 
 #define isdigit(n) (n >= '0' && n <= '9')
 
@@ -189,8 +189,8 @@ void play_rtttl(char *p)
       Serial.print(notes[(scale - 4) * 12 + note], 10);
       Serial.print(") ");
       Serial.println(duration, 10);
-      chan1.play(notes[(scale - 4) * 12 + note], SQUARE, 1.0);
-      delay(duration*64);
+      chan1.play(notes[(scale - 4) * 12 + note], SQUARE, 0.2);
+      delay(duration);
       chan1.stop();
     }
     else
@@ -202,9 +202,9 @@ void play_rtttl(char *p)
   }
 }
 
-void loop(void)
-{
-  play_rtttl(song);
-  Serial.println("Done.");
-  while(1);
-}
+//void loop(void)
+//{
+//  play_rtttl(song);
+//  Serial.println("Done.");
+//  while(1);
+//}

@@ -34,14 +34,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="firmware.ino" pinned="false" current-in-tab="false">
+      <file leaf-file-name="firmware.ino" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/firmware.ino">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-              <folding>
-                <marker date="1528491037000" expanded="true" signature="5174:5178" ph="{...}" />
-              </folding>
+            <state relative-caret-position="238">
+              <caret line="192" column="20" lean-forward="false" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -49,21 +47,21 @@
       <file leaf-file-name="SoftSynth.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SoftSynth.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+            <state relative-caret-position="213">
+              <caret line="140" column="39" lean-forward="false" selection-start-line="140" selection-start-column="39" selection-end-line="140" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SoftSynth.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SoftSynth.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SoftSynth.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="205" column="9" lean-forward="false" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
+            <state relative-caret-position="351">
+              <caret line="209" column="36" lean-forward="false" selection-start-line="209" selection-start-column="36" selection-end-line="209" selection-end-column="36" />
               <folding>
                 <element signature="e#0#2#0" expanded="false" />
-                <element signature="e#369#465#0" expanded="false" />
+                <element signature="e#371#467#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -112,10 +110,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/firmware.ino" />
         <option value="$PROJECT_DIR$/cmake-build-debug/firmware_firmware.ino.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/SoftSynth.h" />
+        <option value="$PROJECT_DIR$/firmware.ino" />
         <option value="$PROJECT_DIR$/SoftSynth.cpp" />
       </list>
     </option>
@@ -227,12 +225,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528393154127</updated>
       <workItem from="1528393155548" duration="254000" />
-      <workItem from="1528393427711" duration="18620000" />
+      <workItem from="1528393427711" duration="22434000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18874000" />
+    <option name="totallyTimeSpent" value="22688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -282,9 +280,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1528491037000" expanded="true" signature="5174:5178" ph="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -416,24 +412,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/firmware.ino">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-          <folding>
-            <marker date="1528491037000" expanded="true" signature="5174:5178" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SoftSynth.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Arduino.app/Contents/Java/hardware/arduino/avr/cores/arduino/wiring_analog.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -450,20 +428,36 @@
         <state relative-caret-position="-4154">
           <caret line="241" column="0" lean-forward="true" selection-start-line="241" selection-start-column="0" selection-end-line="241" selection-end-column="0" />
           <folding>
-            <element signature="e#12848#13148#0" expanded="true" />
-            <element signature="e#13176#13476#0" expanded="true" />
+            <element signature="e#12848#13148#0" expanded="false" />
+            <element signature="e#13176#13476#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SoftSynth.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="140" column="39" lean-forward="false" selection-start-line="140" selection-start-column="39" selection-end-line="140" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SoftSynth.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="205" column="9" lean-forward="false" selection-start-line="205" selection-start-column="9" selection-end-line="205" selection-end-column="9" />
+        <state relative-caret-position="351">
+          <caret line="209" column="36" lean-forward="false" selection-start-line="209" selection-start-column="36" selection-end-line="209" selection-end-column="36" />
           <folding>
             <element signature="e#0#2#0" expanded="false" />
-            <element signature="e#369#465#0" expanded="false" />
+            <element signature="e#371#467#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/firmware.ino">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="192" column="20" lean-forward="false" selection-start-line="192" selection-start-column="20" selection-end-line="192" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

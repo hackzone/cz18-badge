@@ -9,10 +9,11 @@
 #define NORMAL_SAMPLE_WIDTH 16
 #define MAX_FREQ 2000
 //#define TIMER_CYCLES ((F_CPU / (MAX_FREQ * NORMAL_SAMPLE_WIDTH)) - 1)
-#define TIMER_CYCLES 200
+#define TIMER_CYCLES 1500
 
 /* Patch delay() to use custom softsynth_delay() instead. */
 void (*orig_delay)(unsigned long) = delay;
+
 #define delay() softsynth_delay()
 
 /***** Source of voice intensities:
@@ -27,6 +28,9 @@ Voice pwm25_voice = {16, {255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ChannelList *channels;
 volatile ChannelList *cur_chan;
 volatile SoftSynth *cur_synth;
+volatile uint8_t cur_duty;
+volatile uint16_t cycle_diff;
+volatile int16_t intensity_diff;
 
 void start_timer() {
     cli();
@@ -78,11 +82,11 @@ void stop_timer() {
     sei();
 }
 
-void insert_channel(SoftSynth* chan) {
+void insert_channel(SoftSynth *chan) {
 #ifdef DEBUG
     Serial.println("chan_insert");
 #endif
-    if(!channels) {
+    if (!channels) {
 #ifdef DEBUG
         Serial.println("chan_insert_new");
 #endif
@@ -103,40 +107,40 @@ void insert_channel(SoftSynth* chan) {
         channels = newChan;
     }
 
-    if(channels->synth == chan) {
+    if (channels->synth == chan) {
         start_timer();
     }
 }
 
-void remove_channel(SoftSynth* chan) {
+void remove_channel(SoftSynth *chan) {
 #ifdef DEBUG
     Serial.println("chan_remove");
 #endif
-    if(channels) {
+    if (channels) {
         ChannelList *cur = channels;
 
         /* Find entry */
-        while(cur->synth != chan) {
-            if(!cur->next) {
+        while (cur->synth != chan) {
+            if (!cur->next) {
                 return;
             }
             cur = cur->next;
         }
 
         /* Remove entry */
-        if(cur->prev) {
+        if (cur->prev) {
             cur->prev->next = cur->next ? cur->next : NULL;
         }
-        if(cur->next) {
+        if (cur->next) {
             cur->next->prev = cur->prev ? cur->prev : NULL;
         }
-        if(channels == cur) {
+        if (channels == cur) {
             channels = cur->next ? cur->next : NULL;
         }
         free(cur);
     }
 
-    if(!channels) {
+    if (!channels) {
         stop_timer();
     }
 }
@@ -164,7 +168,7 @@ void SoftSynth::play(uint16_t frequency, Voice *voice, float volume) {
     Serial.println();
 #endif
 
-    if(!this->isActive) {
+    if (!this->isActive) {
         this->isActive = true;
         insert_channel(this);
     }
@@ -183,27 +187,60 @@ void SoftSynth::stop() {
 
 ISR(TIMER1_COMPA_vect) {
     cur_chan = channels;
-    while(cur_chan) {
+    while (cur_chan) {
         cur_synth = cur_chan->synth;
 //        Serial.println((unsigned int)cur_chan->next, 16);
         cur_synth->cyclesSinceLast += TIMER_CYCLES;
 
-        /* We need to update this synthesizer channel to its next voice sample index */
-        if(cur_synth->cyclesSinceLast >= cur_synth->wantedCycles) {
-            /* Update voice sample index */
-            cur_synth->voiceIndex += cur_synth->cyclesSinceLast / cur_synth->wantedCycles;
-
-            cur_synth->cyclesSinceLast = 0;
-
-            if(cur_synth->voiceIndex >= cur_synth->voice->length) {
-                cur_synth->voiceIndex = 0 + cur_synth->voiceIndex - cur_synth->voice->length;
+        if (cur_synth->cyclesSinceLast >= cur_synth->wantedCycles) {
+            cur_synth->voiceIndex++;
+            cur_synth->cyclesSinceLast -= cur_synth->wantedCycles;
+            cur_synth->voiceIndex = cur_synth->nextVoiceIndex;
+            if (cur_synth->voiceIndex + 1 >= cur_synth->voice->length) {
+                cur_synth->nextVoiceIndex = 0;
+            } else {
+                cur_synth->nextVoiceIndex = cur_synth->voiceIndex + 1;
             }
-
-            /* Set pin to current voice output */
-            analogWrite(cur_synth->pin, cur_synth->voice->intensities[cur_synth->voiceIndex]);
-//            Serial.println(cur_synth->voice->intensities[cur_synth->voiceIndex], 10);
-//            analogWrite(cur_synth->pin, 200);
         }
+
+        cycle_diff = cur_synth->wantedCycles - cur_synth->cyclesSinceLast;
+
+        intensity_diff = cur_synth->voice->intensities[cur_synth->nextVoiceIndex] -
+                         cur_synth->voice->intensities[cur_synth->voiceIndex];
+        analogWrite(cur_synth->pin, (cur_synth->voice->intensities[cur_synth->voiceIndex] +
+                                    (intensity_diff * ((float) cur_synth->cyclesSinceLast / cur_synth->wantedCycles))));
+
+//#ifdef DEBUG
+//        Serial.print(intensity_diff);
+//        Serial.print(" ");
+//        Serial.print(cur_synth->cyclesSinceLast);
+//        Serial.print("/");
+//        Serial.print(cur_synth->wantedCycles);
+//        Serial.print(" ");
+//        Serial.print(((float) cur_synth->cyclesSinceLast / cur_synth->wantedCycles));
+//        Serial.print(" ");
+//        Serial.print(cur_synth->voice->intensities[cur_synth->voiceIndex]);
+//        Serial.print(" ");
+//        Serial.println(cur_synth->voice->intensities[cur_synth->voiceIndex] +
+//                       (intensity_diff * ((float) cur_synth->cyclesSinceLast / cur_synth->wantedCycles)));
+//#endif
+
+        /* We need to update this synthesizer channel to its next voice sample index */
+//        if(cur_synth->cyclesSinceLast >= cur_synth->wantedCycles) {
+//            /* Update voice sample index */
+//            cur_synth->voiceIndex += cur_synth->cyclesSinceLast / cur_synth->wantedCycles;
+//
+//            cur_synth->cyclesSinceLast = 0;
+//
+//            if(cur_synth->voiceIndex >= cur_synth->voice->length) {
+//                cur_synth->voiceIndex = 0 + cur_synth->voiceIndex - cur_synth->voice->length;
+//            }
+//
+//            /* Set pin to current voice output */
+//            analogWrite(cur_synth->pin, cur_synth->voice->intensities[cur_synth->voiceIndex]);
+////            Serial.println(cur_synth->voice->intensities[cur_synth->voiceIndex], 10);
+////            analogWrite(cur_synth->pin, 200);
+//        }
 
         cur_chan = cur_chan->next;
     }

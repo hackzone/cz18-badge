@@ -138,6 +138,7 @@ public:
 
     Voice* voice = PWM25;
     volatile uint8_t voiceIndex = 0;
+    volatile uint8_t nextVoiceIndex = 1;
 
     uint16_t wantedCycles;
     uint16_t cyclesSinceLast = 0;
