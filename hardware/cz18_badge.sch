@@ -96,14 +96,15 @@ LIBS:Xicor
 LIBS:zetex
 LIBS:Zilog
 LIBS:skoro_sensors
+LIBS:cz18_badge-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
-Date ""
-Rev ""
+Title "CampZone 2018 Event Badge"
+Date "2018-06-10"
+Rev "1.0.0"
 Comp ""
 Comment1 ""
 Comment2 ""
@@ -168,10 +169,10 @@ $EndComp
 Text GLabel 2200 800  1    60   Input ~ 0
 VCC
 $Comp
-L GNDREF #PWR01
+L GNDREF #PWR10
 U 1 1 5B016875
 P 1300 1500
-F 0 "#PWR01" H 1300 1250 50  0001 C CNN
+F 0 "#PWR10" H 1300 1250 50  0001 C CNN
 F 1 "GNDREF" H 1300 1350 50  0000 C CNN
 F 2 "" H 1300 1500 50  0001 C CNN
 F 3 "" H 1300 1500 50  0001 C CNN
@@ -179,10 +180,10 @@ F 3 "" H 1300 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDREF #PWR02
+L GNDREF #PWR11
 U 1 1 5B016893
 P 2200 1500
-F 0 "#PWR02" H 2200 1250 50  0001 C CNN
+F 0 "#PWR11" H 2200 1250 50  0001 C CNN
 F 1 "GNDREF" H 2200 1350 50  0000 C CNN
 F 2 "" H 2200 1500 50  0001 C CNN
 F 3 "" H 2200 1500 50  0001 C CNN
@@ -190,10 +191,10 @@ F 3 "" H 2200 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDREF #PWR03
+L GNDREF #PWR12
 U 1 1 5B016988
 P 3100 1500
-F 0 "#PWR03" H 3100 1250 50  0001 C CNN
+F 0 "#PWR12" H 3100 1250 50  0001 C CNN
 F 1 "GNDREF" H 3100 1350 50  0000 C CNN
 F 2 "" H 3100 1500 50  0001 C CNN
 F 3 "" H 3100 1500 50  0001 C CNN
@@ -201,10 +202,10 @@ F 3 "" H 3100 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDREF #PWR04
+L GNDREF #PWR13
 U 1 1 5B016A28
 P 4000 1500
-F 0 "#PWR04" H 4000 1250 50  0001 C CNN
+F 0 "#PWR13" H 4000 1250 50  0001 C CNN
 F 1 "GNDREF" H 4000 1350 50  0000 C CNN
 F 2 "" H 4000 1500 50  0001 C CNN
 F 3 "" H 4000 1500 50  0001 C CNN
@@ -212,10 +213,10 @@ F 3 "" H 4000 1500 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GNDREF #PWR05
+L GNDREF #PWR14
 U 1 1 5B016A4B
 P 4950 1500
-F 0 "#PWR05" H 4950 1250 50  0001 C CNN
+F 0 "#PWR14" H 4950 1250 50  0001 C CNN
 F 1 "GNDREF" H 4950 1350 50  0000 C CNN
 F 2 "" H 4950 1500 50  0001 C CNN
 F 3 "" H 4950 1500 50  0001 C CNN
@@ -234,10 +235,10 @@ F 3 "" H 1950 850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDREF #PWR06
+L GNDREF #PWR2
 U 1 1 5B0170CF
 P 1800 850
-F 0 "#PWR06" H 1800 600 50  0001 C CNN
+F 0 "#PWR2" H 1800 600 50  0001 C CNN
 F 1 "GNDREF" H 1800 700 50  0000 C CNN
 F 2 "" H 1800 850 50  0001 C CNN
 F 3 "" H 1800 850 50  0001 C CNN
@@ -258,10 +259,10 @@ F 3 "" H 1050 850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDREF #PWR07
+L GNDREF #PWR1
 U 1 1 5B0175AF
 P 900 850
-F 0 "#PWR07" H 900 600 50  0001 C CNN
+F 0 "#PWR1" H 900 600 50  0001 C CNN
 F 1 "GNDREF" H 900 700 50  0000 C CNN
 F 2 "" H 900 850 50  0001 C CNN
 F 3 "" H 900 850 50  0001 C CNN
@@ -282,10 +283,10 @@ F 3 "" H 2850 850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDREF #PWR08
+L GNDREF #PWR3
 U 1 1 5B0179B3
 P 2700 850
-F 0 "#PWR08" H 2700 600 50  0001 C CNN
+F 0 "#PWR3" H 2700 600 50  0001 C CNN
 F 1 "GNDREF" H 2700 700 50  0000 C CNN
 F 2 "" H 2700 850 50  0001 C CNN
 F 3 "" H 2700 850 50  0001 C CNN
@@ -306,10 +307,10 @@ F 3 "" H 3750 850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDREF #PWR09
+L GNDREF #PWR4
 U 1 1 5B017A92
 P 3600 850
-F 0 "#PWR09" H 3600 600 50  0001 C CNN
+F 0 "#PWR4" H 3600 600 50  0001 C CNN
 F 1 "GNDREF" H 3600 700 50  0000 C CNN
 F 2 "" H 3600 850 50  0001 C CNN
 F 3 "" H 3600 850 50  0001 C CNN
@@ -330,10 +331,10 @@ F 3 "" H 4700 850 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L GNDREF #PWR010
+L GNDREF #PWR5
 U 1 1 5B017AE5
 P 4550 850
-F 0 "#PWR010" H 4550 600 50  0001 C CNN
+F 0 "#PWR5" H 4550 600 50  0001 C CNN
 F 1 "GNDREF" H 4550 700 50  0000 C CNN
 F 2 "" H 4550 850 50  0001 C CNN
 F 3 "" H 4550 850 50  0001 C CNN
@@ -342,73 +343,565 @@ F 3 "" H 4550 850 50  0001 C CNN
 $EndComp
 Text GLabel 1000 1200 0    60   Input ~ 0
 LEDS_IN
-Text GLabel 5250 1200 2    60   Output ~ 0
+Text GLabel 7150 1200 2    60   Output ~ 0
 LEDS_OUT
 $Comp
 L Arduino_Nano_v3.x A1
 U 1 1 5B018CAF
-P 9400 5050
-F 0 "A1" H 9200 6075 50  0000 R CNN
-F 1 "Arduino_Nano_v3.x" H 9200 6000 50  0000 R CNN
-F 2 "Modules:Arduino_Nano" H 9550 4100 50  0001 L CNN
-F 3 "" H 9400 4050 50  0001 C CNN
-	1    9400 5050
+P 9550 3900
+F 0 "A1" H 9350 4925 50  0000 R CNN
+F 1 "Arduino_Nano_v3.x" H 9350 4850 50  0000 R CNN
+F 2 "Modules:Arduino_Nano" H 9700 2950 50  0001 L CNN
+F 3 "" H 9550 2900 50  0001 C CNN
+	1    9550 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L Buzzer BZ1
 U 1 1 5B01D686
-P 1000 6350
-F 0 "BZ1" H 1150 6400 50  0000 L CNN
-F 1 "Buzzer" H 1150 6300 50  0000 L CNN
-F 2 "Buzzers_Beepers:MagneticBuzzer_ProSignal_ABT-410-RC" V 975 6450 50  0001 C CNN
-F 3 "" V 975 6450 50  0001 C CNN
-	1    1000 6350
+P 900 4850
+F 0 "BZ1" H 1050 4900 50  0000 L CNN
+F 1 "Buzzer" H 1050 4800 50  0000 L CNN
+F 2 "Buzzers_Beepers:MagneticBuzzer_ProSignal_ABT-410-RC" V 875 4950 50  0001 C CNN
+F 3 "" V 875 4950 50  0001 C CNN
+	1    900  4850
 	-1   0    0    1   
 $EndComp
 $Comp
 L Buzzer BZ2
 U 1 1 5B01DC35
-P 1000 6800
-F 0 "BZ2" H 1150 6850 50  0000 L CNN
-F 1 "Buzzer" H 1150 6750 50  0000 L CNN
-F 2 "Buzzers_Beepers:MagneticBuzzer_ProSignal_ABT-410-RC" V 975 6900 50  0001 C CNN
-F 3 "" V 975 6900 50  0001 C CNN
-	1    1000 6800
+P 900 5300
+F 0 "BZ2" H 1050 5350 50  0000 L CNN
+F 1 "Buzzer" H 1050 5250 50  0000 L CNN
+F 2 "Buzzers_Beepers:MagneticBuzzer_ProSignal_ABT-410-RC" V 875 5400 50  0001 C CNN
+F 3 "" V 875 5400 50  0001 C CNN
+	1    900  5300
 	-1   0    0    1   
 $EndComp
 $Comp
-L GNDREF #PWR011
+L GNDREF #PWR19
 U 1 1 5B01DF4E
-P 1250 6250
-F 0 "#PWR011" H 1250 6000 50  0001 C CNN
-F 1 "GNDREF" H 1250 6100 50  0000 C CNN
-F 2 "" H 1250 6250 50  0001 C CNN
-F 3 "" H 1250 6250 50  0001 C CNN
-	1    1250 6250
+P 1150 4750
+F 0 "#PWR19" H 1150 4500 50  0001 C CNN
+F 1 "GNDREF" H 1150 4600 50  0000 C CNN
+F 2 "" H 1150 4750 50  0001 C CNN
+F 3 "" H 1150 4750 50  0001 C CNN
+	1    1150 4750
 	0    -1   -1   0   
 $EndComp
 $Comp
-L GNDREF #PWR012
+L GNDREF #PWR20
 U 1 1 5B01DFBD
-P 1250 6700
-F 0 "#PWR012" H 1250 6450 50  0001 C CNN
-F 1 "GNDREF" H 1250 6550 50  0000 C CNN
-F 2 "" H 1250 6700 50  0001 C CNN
-F 3 "" H 1250 6700 50  0001 C CNN
-	1    1250 6700
+P 1150 5200
+F 0 "#PWR20" H 1150 4950 50  0001 C CNN
+F 1 "GNDREF" H 1150 5050 50  0000 C CNN
+F 2 "" H 1150 5200 50  0001 C CNN
+F 3 "" H 1150 5200 50  0001 C CNN
+	1    1150 5200
 	0    -1   -1   0   
 $EndComp
-Text GLabel 1250 6450 2    60   Input ~ 0
+Text GLabel 1150 4950 2    60   Input ~ 0
 BUZZ1
-Text GLabel 1250 6900 2    60   Input ~ 0
+Text GLabel 1150 5400 2    60   Input ~ 0
 BUZZ2
-Text GLabel 8600 5000 0    60   Output ~ 0
+Text GLabel 8750 3850 0    60   Output ~ 0
 BUZZ1
-Text GLabel 8600 5400 0    60   Output ~ 0
+Text GLabel 8750 4250 0    60   Output ~ 0
 BUZZ2
-Text GLabel 9600 3900 1    60   Input ~ 0
+Text GLabel 9750 2750 1    60   Input ~ 0
 VCC
+$Comp
+L NRF24L01_Breakout U2
+U 1 1 5B024791
+P 6000 6800
+F 0 "U2" H 5650 7300 50  0000 L CNN
+F 1 "NRF24L01" H 6150 7300 50  0000 L CNN
+F 2 "RF_Modules:nRF24L01_Breakout" H 6150 7400 50  0001 L CIN
+F 3 "" H 6000 6700 50  0000 C CNN
+	1    6000 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR23
+U 1 1 5B024896
+P 6000 7400
+F 0 "#PWR23" H 6000 7150 50  0001 C CNN
+F 1 "GNDREF" H 6000 7250 50  0000 C CNN
+F 2 "" H 6000 7400 50  0001 C CNN
+F 3 "" H 6000 7400 50  0001 C CNN
+	1    6000 7400
+	1    0    0    -1  
+$EndComp
+Text GLabel 6000 6200 1    60   Input ~ 0
+3V3
+$Comp
+L RF_Receiver_433_MHz RF2
+U 1 1 5B0249F1
+P 2100 6700
+F 0 "RF2" H 2100 7350 60  0000 C CNN
+F 1 "433MHz Receiver" H 2100 7250 60  0000 C CNN
+F 2 "Sensors:RF_Receiver_433_MHz" H 2200 6700 60  0001 C CNN
+F 3 "" H 2200 6700 60  0000 C CNN
+	1    2100 6700
+	-1   0    0    1   
+$EndComp
+$Comp
+L RF_Transmitter_433_MHz RF1
+U 1 1 5B024A40
+P 3150 6550
+F 0 "RF1" H 3150 7350 60  0000 C CNN
+F 1 "433MHz Transmitter" H 3150 7250 60  0000 C CNN
+F 2 "Sensors:RF_Transmitter_433_MHz" H 3150 6550 60  0001 C CNN
+F 3 "" H 3150 6550 60  0000 C CNN
+	1    3150 6550
+	-1   0    0    1   
+$EndComp
+Text Notes 7150 6950 0    60   ~ 0
+TODO:\n\n- Add bulk capacitor (10-100uF) over battery terminals
+$Comp
+L TSOP323xx U1
+U 1 1 5B14681B
+P 1000 2850
+F 0 "U1" H 600 3150 50  0000 L CNN
+F 1 "CHQ1838" H 600 2550 50  0000 L CNN
+F 2 "Opto-Devices:IRReceiver_Vishay_MOLD-3pin" H 950 2475 50  0001 C CNN
+F 3 "" H 1650 3150 50  0001 C CNN
+	1    1000 2850
+	1    0    0    -1  
+$EndComp
+$Comp
+L LD271 D8
+U 1 1 5B14689E
+P 1100 3600
+F 0 "D8" H 1120 3670 50  0000 L CNN
+F 1 "940nm" H 1060 3490 50  0000 C CNN
+F 2 "LEDs:LED_D5.0mm" H 1100 3775 50  0001 C CNN
+F 3 "" H 1050 3600 50  0001 C CNN
+	1    1100 3600
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R1
+U 1 1 5B14695C
+P 1800 2700
+F 0 "R1" V 1880 2700 50  0000 C CNN
+F 1 "10k" V 1800 2700 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 1730 2700 50  0001 C CNN
+F 3 "" H 1800 2700 50  0001 C CNN
+	1    1800 2700
+	-1   0    0    1   
+$EndComp
+Text GLabel 1600 2650 1    60   Input ~ 0
+VCC
+Text GLabel 2000 2850 2    60   Output ~ 0
+IR_RECV
+$Comp
+L GNDREF #PWR17
+U 1 1 5B147254
+P 1600 3050
+F 0 "#PWR17" H 1600 2800 50  0001 C CNN
+F 1 "GNDREF" H 1600 2900 50  0000 C CNN
+F 2 "" H 1600 3050 50  0001 C CNN
+F 3 "" H 1600 3050 50  0001 C CNN
+	1    1600 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 1400 3600 2    60   Input ~ 0
+IR_SEND
+$Comp
+L GNDREF #PWR18
+U 1 1 5B147766
+P 700 3600
+F 0 "#PWR18" H 700 3350 50  0001 C CNN
+F 1 "GNDREF" H 700 3450 50  0000 C CNN
+F 2 "" H 700 3600 50  0001 C CNN
+F 3 "" H 700 3600 50  0001 C CNN
+	1    700  3600
+	1    0    0    -1  
+$EndComp
+Text GLabel 8750 4000 0    60   Input ~ 0
+IR_RECV
+Text GLabel 8750 3600 0    60   Output ~ 0
+IR_SEND
+$Comp
+L GNDREF #PWR22
+U 1 1 5B148ADE
+P 1900 6550
+F 0 "#PWR22" H 1900 6300 50  0001 C CNN
+F 1 "GNDREF" H 1900 6400 50  0000 C CNN
+F 2 "" H 1900 6550 50  0001 C CNN
+F 3 "" H 1900 6550 50  0001 C CNN
+	1    1900 6550
+	0    1    1    0   
+$EndComp
+$Comp
+L GNDREF #PWR21
+U 1 1 5B148B31
+P 3050 6400
+F 0 "#PWR21" H 3050 6150 50  0001 C CNN
+F 1 "GNDREF" H 3050 6250 50  0000 C CNN
+F 2 "" H 3050 6400 50  0001 C CNN
+F 3 "" H 3050 6400 50  0001 C CNN
+	1    3050 6400
+	0    1    1    0   
+$EndComp
+Text GLabel 2200 6550 2    60   Input ~ 0
+VCC
+Text GLabel 3150 6400 1    60   Input ~ 0
+VCC
+Text GLabel 2000 6400 1    60   Output ~ 0
+RF_RECV
+Text GLabel 3350 6400 2    60   Input ~ 0
+RF_SEND
+Text GLabel 8750 3500 0    60   Input ~ 0
+RF_RECV
+Text GLabel 8750 4100 0    60   Input ~ 0
+RF_SEND
+Text GLabel 8750 3700 0    60   Output ~ 0
+LEDS_IN
+Text GLabel 10300 4000 2    60   BiDi ~ 0
+NRF_CE
+Text GLabel 10300 3900 2    60   BiDi ~ 0
+SPI_SS
+Text GLabel 8750 4400 0    60   BiDi ~ 0
+SPI_MOSI
+Text GLabel 8750 4500 0    60   BiDi ~ 0
+SPI_MISO
+Text GLabel 8750 4600 0    60   BiDi ~ 0
+SPI_SCK
+NoConn ~ 5500 7100
+Text GLabel 5400 6500 0    60   BiDi ~ 0
+SPI_MOSI
+Text GLabel 5400 6600 0    60   BiDi ~ 0
+SPI_MISO
+Text GLabel 5400 6700 0    60   BiDi ~ 0
+SPI_SCK
+Text GLabel 5400 6800 0    60   BiDi ~ 0
+SPI_SS
+Text GLabel 5400 7000 0    60   BiDi ~ 0
+NRF_CE
+Text GLabel 9650 2750 1    60   Input ~ 0
+3V3
+Text GLabel 9450 2750 1    60   Input ~ 0
+VIN
+$Comp
+L Battery BT1
+U 1 1 5B1573BE
+P 10650 1150
+F 0 "BT1" H 10750 1250 50  0000 L CNN
+F 1 "Battery" H 10750 1150 50  0000 L CNN
+F 2 "Battery_Holders:Keystone_2479_3xAAA" V 10650 1210 50  0001 C CNN
+F 3 "" V 10650 1210 50  0001 C CNN
+	1    10650 1150
+	1    0    0    -1  
+$EndComp
+Text GLabel 10500 900  1    60   Input ~ 0
+VCC
+$Comp
+L GNDREF #PWR9
+U 1 1 5B157699
+P 10800 1350
+F 0 "#PWR9" H 10800 1100 50  0001 C CNN
+F 1 "GNDREF" H 10800 1200 50  0000 C CNN
+F 2 "" H 10800 1350 50  0001 C CNN
+F 3 "" H 10800 1350 50  0001 C CNN
+	1    10800 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Conn_02x15_Odd_Even J1
+U 1 1 5B158708
+P 6600 4000
+F 0 "J1" H 6650 4800 50  0000 C CNN
+F 1 "Dev breakout" H 6650 3200 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x15_Pitch2.54mm" H 6600 4000 50  0001 C CNN
+F 3 "" H 6600 4000 50  0001 C CNN
+	1    6600 4000
+	1    0    0    -1  
+$EndComp
+Text GLabel 9050 3300 0    60   BiDi ~ 0
+RX
+Text GLabel 9050 3400 0    60   BiDi ~ 0
+TX
+Text GLabel 9050 3500 0    60   BiDi ~ 0
+D2
+Text GLabel 9050 3600 0    60   BiDi ~ 0
+D3
+Text GLabel 9050 3700 0    60   BiDi ~ 0
+D4
+Text GLabel 9050 3800 0    60   BiDi ~ 0
+D5
+Text GLabel 9050 3900 0    60   BiDi ~ 0
+D6
+Text GLabel 9050 4000 0    60   BiDi ~ 0
+D7
+Text GLabel 9050 4100 0    60   BiDi ~ 0
+D8
+Text GLabel 9050 4200 0    60   BiDi ~ 0
+D9
+Text GLabel 9050 4300 0    60   BiDi ~ 0
+D10
+Text GLabel 9050 4400 0    60   BiDi ~ 0
+D11
+Text GLabel 9050 4500 0    60   BiDi ~ 0
+D12
+Text GLabel 9050 4600 0    60   BiDi ~ 0
+D13
+Text GLabel 6900 3700 2    60   BiDi ~ 0
+A7
+Text GLabel 6900 3800 2    60   BiDi ~ 0
+A6
+Text GLabel 6900 3900 2    60   BiDi ~ 0
+A5
+Text GLabel 6900 4000 2    60   BiDi ~ 0
+A4
+Text GLabel 6900 4200 2    60   BiDi ~ 0
+A2
+Text GLabel 6900 4300 2    60   BiDi ~ 0
+A1
+Text GLabel 6900 4400 2    60   BiDi ~ 0
+A0
+Text GLabel 10050 3700 2    60   BiDi ~ 0
+AREF
+Text GLabel 10100 3350 2    60   BiDi ~ 0
+RESET
+Text GLabel 6400 3400 0    60   BiDi ~ 0
+RX
+Text GLabel 6400 3300 0    60   BiDi ~ 0
+TX
+Text GLabel 6400 3700 0    60   BiDi ~ 0
+D2
+Text GLabel 6400 3800 0    60   BiDi ~ 0
+D3
+Text GLabel 6400 3900 0    60   BiDi ~ 0
+D4
+Text GLabel 6400 4000 0    60   BiDi ~ 0
+D5
+Text GLabel 6400 4100 0    60   BiDi ~ 0
+D6
+Text GLabel 6400 4200 0    60   BiDi ~ 0
+D7
+Text GLabel 6400 4300 0    60   BiDi ~ 0
+D8
+Text GLabel 6400 4400 0    60   BiDi ~ 0
+D9
+Text GLabel 6400 4500 0    60   BiDi ~ 0
+D10
+Text GLabel 6400 4600 0    60   BiDi ~ 0
+D11
+Text GLabel 6400 4700 0    60   BiDi ~ 0
+D12
+Text GLabel 6900 4700 2    60   BiDi ~ 0
+D13
+Text GLabel 6400 3500 0    60   BiDi ~ 0
+RESET
+Text GLabel 6900 4600 2    60   Input ~ 0
+3V3
+Text GLabel 6900 4500 2    60   BiDi ~ 0
+AREF
+Text GLabel 6900 4100 2    60   BiDi ~ 0
+A3
+Text GLabel 6900 3600 2    60   Input ~ 0
+VCC
+Text GLabel 6900 3500 2    60   BiDi ~ 0
+RESET
+Text GLabel 9600 5000 3    60   Input ~ 0
+GND
+$Comp
+L VCC #PWR8
+U 1 1 5B15CD53
+P 10800 900
+F 0 "#PWR8" H 10800 750 50  0001 C CNN
+F 1 "VCC" H 10800 1050 50  0000 C CNN
+F 2 "" H 10800 900 50  0001 C CNN
+F 3 "" H 10800 900 50  0001 C CNN
+	1    10800 900 
+	1    0    0    -1  
+$EndComp
+Text GLabel 10500 1350 3    60   Input ~ 0
+GND
+Text GLabel 10050 4600 2    60   BiDi ~ 0
+A7
+Text GLabel 10050 4500 2    60   BiDi ~ 0
+A6
+Text GLabel 10050 4400 2    60   BiDi ~ 0
+A5
+Text GLabel 10050 4300 2    60   BiDi ~ 0
+A4
+Text GLabel 10050 4100 2    60   BiDi ~ 0
+A2
+Text GLabel 10050 4000 2    60   BiDi ~ 0
+A1
+Text GLabel 10050 3900 2    60   BiDi ~ 0
+A0
+Text GLabel 10050 4200 2    60   BiDi ~ 0
+A3
+Text GLabel 6400 3600 0    60   Input ~ 0
+GND
+Text GLabel 6900 3400 2    60   Input ~ 0
+GND
+Text GLabel 6900 3300 2    60   Input ~ 0
+VIN
+$Comp
+L SK6812 D6
+U 1 1 5B1CF243
+P 5900 1200
+F 0 "D6" H 6100 1425 50  0000 R BNN
+F 1 "SK6812" H 5950 975 50  0000 L TNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 5950 900 50  0001 L TNN
+F 3 "" H 6000 825 50  0001 L TNN
+	1    5900 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR15
+U 1 1 5B1CF249
+P 5900 1500
+F 0 "#PWR15" H 5900 1250 50  0001 C CNN
+F 1 "GNDREF" H 5900 1350 50  0000 C CNN
+F 2 "" H 5900 1500 50  0001 C CNN
+F 3 "" H 5900 1500 50  0001 C CNN
+	1    5900 1500
+	1    0    0    -1  
+$EndComp
+Text GLabel 5900 800  1    60   Input ~ 0
+VCC
+$Comp
+L C C6
+U 1 1 5B1CF250
+P 5650 850
+F 0 "C6" H 5675 950 50  0000 L CNN
+F 1 "104" H 5675 750 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 5688 700 50  0001 C CNN
+F 3 "" H 5650 850 50  0001 C CNN
+	1    5650 850 
+	0    1    1    0   
+$EndComp
+$Comp
+L GNDREF #PWR6
+U 1 1 5B1CF256
+P 5500 850
+F 0 "#PWR6" H 5500 600 50  0001 C CNN
+F 1 "GNDREF" H 5500 700 50  0000 C CNN
+F 2 "" H 5500 850 50  0001 C CNN
+F 3 "" H 5500 850 50  0001 C CNN
+	1    5500 850 
+	0    1    1    0   
+$EndComp
+$Comp
+L SK6812 D7
+U 1 1 5B1CF3D9
+P 6850 1200
+F 0 "D7" H 7050 1425 50  0000 R BNN
+F 1 "SK6812" H 6900 975 50  0000 L TNN
+F 2 "LED_SMD:LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" H 6900 900 50  0001 L TNN
+F 3 "" H 6950 825 50  0001 L TNN
+	1    6850 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L GNDREF #PWR16
+U 1 1 5B1CF3DF
+P 6850 1500
+F 0 "#PWR16" H 6850 1250 50  0001 C CNN
+F 1 "GNDREF" H 6850 1350 50  0000 C CNN
+F 2 "" H 6850 1500 50  0001 C CNN
+F 3 "" H 6850 1500 50  0001 C CNN
+	1    6850 1500
+	1    0    0    -1  
+$EndComp
+Text GLabel 6850 800  1    60   Input ~ 0
+VCC
+$Comp
+L C C7
+U 1 1 5B1CF3E6
+P 6600 850
+F 0 "C7" H 6625 950 50  0000 L CNN
+F 1 "104" H 6625 750 50  0000 L CNN
+F 2 "Capacitors_SMD:C_0603_HandSoldering" H 6638 700 50  0001 C CNN
+F 3 "" H 6600 850 50  0001 C CNN
+	1    6600 850 
+	0    1    1    0   
+$EndComp
+$Comp
+L GNDREF #PWR7
+U 1 1 5B1CF3EC
+P 6450 850
+F 0 "#PWR7" H 6450 600 50  0001 C CNN
+F 1 "GNDREF" H 6450 700 50  0000 C CNN
+F 2 "" H 6450 850 50  0001 C CNN
+F 3 "" H 6450 850 50  0001 C CNN
+	1    6450 850 
+	0    1    1    0   
+$EndComp
+$Comp
+L SW_Push SW1
+U 1 1 5B1CFFBE
+P 8500 1350
+F 0 "SW1" H 8550 1450 50  0000 L CNN
+F 1 "SW_Push" H 8500 1290 50  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h4.3mm" H 8500 1550 50  0001 C CNN
+F 3 "" H 8500 1550 50  0001 C CNN
+	1    8500 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L SW_Push SW2
+U 1 1 5B1D0253
+P 8850 1350
+F 0 "SW2" H 8900 1450 50  0000 L CNN
+F 1 "SW_Push" H 8850 1290 50  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h4.3mm" H 8850 1550 50  0001 C CNN
+F 3 "" H 8850 1550 50  0001 C CNN
+	1    8850 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L SW_Push SW3
+U 1 1 5B1D02BA
+P 9200 1350
+F 0 "SW3" H 9250 1450 50  0000 L CNN
+F 1 "SW_Push" H 9200 1290 50  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h4.3mm" H 9200 1550 50  0001 C CNN
+F 3 "" H 9200 1550 50  0001 C CNN
+	1    9200 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L SW_Push SW4
+U 1 1 5B1D0324
+P 9500 1350
+F 0 "SW4" H 9550 1450 50  0000 L CNN
+F 1 "SW_Push" H 9500 1290 50  0000 C CNN
+F 2 "Buttons_Switches_THT:SW_PUSH_6mm_h4.3mm" H 9500 1550 50  0001 C CNN
+F 3 "" H 9500 1550 50  0001 C CNN
+	1    9500 1350
+	0    1    1    0   
+$EndComp
+Text GLabel 8500 1550 3    60   Input ~ 0
+VCC
+Text GLabel 8850 1550 3    60   Input ~ 0
+VCC
+Text GLabel 9200 1550 3    60   Input ~ 0
+VCC
+Text GLabel 9500 1550 3    60   Input ~ 0
+VCC
+Text GLabel 8500 1150 1    60   Output ~ 0
+BTN_MODE
+Text GLabel 8850 1150 1    60   Output ~ 0
+BTN_SLOT
+Text GLabel 9200 1150 1    60   Output ~ 0
+BTN_LEARN
+Text GLabel 9500 1150 1    60   Output ~ 0
+BTN_PLAY
+Text GLabel 10300 4100 2    60   Output ~ 0
+BTN_MODE
+Text GLabel 10300 4200 2    60   Output ~ 0
+BTN_SLOT
+Text GLabel 10300 4300 2    60   Output ~ 0
+BTN_LEARN
+Text GLabel 10300 4400 2    60   Output ~ 0
+BTN_PLAY
 Wire Wire Line
 	4300 1200 4650 1200
 Wire Wire Line
@@ -443,103 +936,20 @@ Wire Wire Line
 	4950 800  4950 900 
 Connection ~ 4950 850 
 Wire Wire Line
-	9450 6150 9450 6050
+	9600 5000 9600 4900
 Wire Wire Line
-	9400 6050 9500 6050
-Connection ~ 9450 6050
+	9550 4900 9650 4900
+Connection ~ 9600 4900
 Wire Wire Line
-	1250 6450 1100 6450
+	1150 4950 1000 4950
 Wire Wire Line
-	1100 6250 1250 6250
+	1000 4750 1150 4750
 Wire Wire Line
-	1250 6700 1100 6700
+	1150 5200 1000 5200
 Wire Wire Line
-	1100 6900 1250 6900
+	1000 5400 1150 5400
 Wire Wire Line
-	9600 3900 9600 4050
-$Comp
-L NRF24L01_Breakout U1
-U 1 1 5B024791
-P 6350 6800
-F 0 "U1" H 6000 7300 50  0000 L CNN
-F 1 "NRF24L01" H 6500 7300 50  0000 L CNN
-F 2 "RF_Modules:nRF24L01_Breakout" H 6500 7400 50  0001 L CIN
-F 3 "" H 6350 6700 50  0000 C CNN
-	1    6350 6800
-	1    0    0    -1  
-$EndComp
-$Comp
-L GNDREF #PWR013
-U 1 1 5B024896
-P 6350 7400
-F 0 "#PWR013" H 6350 7150 50  0001 C CNN
-F 1 "GNDREF" H 6350 7250 50  0000 C CNN
-F 2 "" H 6350 7400 50  0001 C CNN
-F 3 "" H 6350 7400 50  0001 C CNN
-	1    6350 7400
-	1    0    0    -1  
-$EndComp
-Text GLabel 6350 6200 1    60   Input ~ 0
-3V3
-$Comp
-L RF_Receiver_433_MHz RF1
-U 1 1 5B0249F1
-P 2950 6600
-F 0 "RF1" H 2950 7250 60  0000 C CNN
-F 1 "433MHz Receiver" H 2950 7150 60  0000 C CNN
-F 2 "Sensors:RF_Receiver_433_MHz" H 3050 6600 60  0001 C CNN
-F 3 "" H 3050 6600 60  0000 C CNN
-	1    2950 6600
-	-1   0    0    1   
-$EndComp
-$Comp
-L RF_Transmitter_433_MHz RF2
-U 1 1 5B024A40
-P 4000 6450
-F 0 "RF2" H 4000 7250 60  0000 C CNN
-F 1 "433MHz Transmitter" H 4000 7150 60  0000 C CNN
-F 2 "Sensors:RF_Transmitter_433_MHz" H 4000 6450 60  0001 C CNN
-F 3 "" H 4000 6450 60  0000 C CNN
-	1    4000 6450
-	-1   0    0    1   
-$EndComp
-Text Notes 7650 1300 0    60   ~ 0
-TODO:\n\n- Determine amount of tactile switches and place them (6x6x4.3mm)\n- Add bulk capacitor (10-100uF) over battery terminals
-$Comp
-L TSOP323xx U2
-U 1 1 5B14681B
-P 1000 2850
-F 0 "U2" H 600 3150 50  0000 L CNN
-F 1 "CHQ1838" H 600 2550 50  0000 L CNN
-F 2 "Opto-Devices:IRReceiver_Vishay_MOLD-3pin" H 950 2475 50  0001 C CNN
-F 3 "" H 1650 3150 50  0001 C CNN
-	1    1000 2850
-	1    0    0    -1  
-$EndComp
-$Comp
-L LD271 D6
-U 1 1 5B14689E
-P 1100 3600
-F 0 "D6" H 1120 3670 50  0000 L CNN
-F 1 "940nm" H 1060 3490 50  0000 C CNN
-F 2 "LEDs:LED_D5.0mm" H 1100 3775 50  0001 C CNN
-F 3 "" H 1050 3600 50  0001 C CNN
-	1    1100 3600
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R1
-U 1 1 5B14695C
-P 1800 2700
-F 0 "R1" V 1880 2700 50  0000 C CNN
-F 1 "10k" V 1800 2700 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 1730 2700 50  0001 C CNN
-F 3 "" H 1800 2700 50  0001 C CNN
-	1    1800 2700
-	-1   0    0    1   
-$EndComp
-Text GLabel 1600 2650 1    60   Input ~ 0
-VCC
+	9750 2750 9750 2900
 Wire Wire Line
 	1400 2650 1700 2650
 Wire Wire Line
@@ -549,341 +959,146 @@ Wire Wire Line
 Connection ~ 1600 2650
 Wire Wire Line
 	1400 2850 2000 2850
-Text GLabel 2000 2850 2    60   Output ~ 0
-IR_RECV
 Connection ~ 1800 2850
-$Comp
-L GNDREF #PWR014
-U 1 1 5B147254
-P 1600 3050
-F 0 "#PWR014" H 1600 2800 50  0001 C CNN
-F 1 "GNDREF" H 1600 2900 50  0000 C CNN
-F 2 "" H 1600 3050 50  0001 C CNN
-F 3 "" H 1600 3050 50  0001 C CNN
-	1    1600 3050
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	1600 3050 1400 3050
-Text GLabel 1400 3600 2    60   Input ~ 0
-IR_SEND
 Wire Wire Line
 	1400 3600 1200 3600
-$Comp
-L GNDREF #PWR015
-U 1 1 5B147766
-P 700 3600
-F 0 "#PWR015" H 700 3350 50  0001 C CNN
-F 1 "GNDREF" H 700 3450 50  0000 C CNN
-F 2 "" H 700 3600 50  0001 C CNN
-F 3 "" H 700 3600 50  0001 C CNN
-	1    700  3600
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	700  3600 900  3600
-Text GLabel 8600 5150 0    60   Input ~ 0
-IR_RECV
-Text GLabel 8600 4750 0    60   Output ~ 0
-IR_SEND
 Wire Wire Line
-	8900 4750 8600 4750
+	9050 3600 8750 3600
 Wire Wire Line
-	8900 5150 8600 5150
-$Comp
-L GNDREF #PWR016
-U 1 1 5B148ADE
-P 2750 6450
-F 0 "#PWR016" H 2750 6200 50  0001 C CNN
-F 1 "GNDREF" H 2750 6300 50  0000 C CNN
-F 2 "" H 2750 6450 50  0001 C CNN
-F 3 "" H 2750 6450 50  0001 C CNN
-	1    2750 6450
-	0    1    1    0   
-$EndComp
-$Comp
-L GNDREF #PWR017
-U 1 1 5B148B31
-P 3900 6300
-F 0 "#PWR017" H 3900 6050 50  0001 C CNN
-F 1 "GNDREF" H 3900 6150 50  0000 C CNN
-F 2 "" H 3900 6300 50  0001 C CNN
-F 3 "" H 3900 6300 50  0001 C CNN
-	1    3900 6300
-	0    1    1    0   
-$EndComp
+	9050 4000 8750 4000
 Wire Wire Line
-	3900 6300 3900 6450
+	3050 6400 3050 6550
 Wire Wire Line
-	2750 6450 2750 6600
-Text GLabel 3050 6450 2    60   Input ~ 0
-VCC
+	1900 6550 1900 6700
 Wire Wire Line
-	3050 6450 3050 6600
-Text GLabel 4000 6300 1    60   Input ~ 0
-VCC
-Text GLabel 2850 6300 1    60   Output ~ 0
-RF_RECV
+	2200 6550 2200 6700
 Wire Wire Line
-	2950 6600 2850 6600
+	2100 6700 2000 6700
 Wire Wire Line
-	2850 6600 2850 6300
-Text GLabel 4200 6300 2    60   Input ~ 0
-RF_SEND
+	2000 6700 2000 6400
 Wire Wire Line
-	8900 4950 8650 4950
+	9050 3800 8800 3800
 Wire Wire Line
-	8650 5050 8900 5050
-Text GLabel 8600 4650 0    60   Input ~ 0
-RF_RECV
+	8800 3900 9050 3900
 Wire Wire Line
-	8600 4650 8900 4650
-Text GLabel 8600 5250 0    60   Input ~ 0
-RF_SEND
+	8750 3500 9050 3500
 Wire Wire Line
-	8600 5250 8900 5250
+	8750 4100 9050 4100
 Wire Wire Line
-	4000 6300 4000 6450
+	3150 6400 3150 6550
 Wire Wire Line
-	4200 6300 4100 6300
+	3350 6400 3250 6400
 Wire Wire Line
-	4100 6300 4100 6450
-Text GLabel 8600 4850 0    60   Output ~ 0
-LEDS_IN
+	3250 6400 3250 6550
 Wire Wire Line
-	8600 4850 8900 4850
-Text GLabel 10150 5150 2    60   BiDi ~ 0
-NRF_CE
-Text GLabel 10150 5050 2    60   BiDi ~ 0
-SPI_SS
-Text GLabel 8600 5550 0    60   BiDi ~ 0
-SPI_MOSI
-Text GLabel 8600 5650 0    60   BiDi ~ 0
-SPI_MISO
-Text GLabel 8600 5750 0    60   BiDi ~ 0
-SPI_SCK
+	8750 3700 9050 3700
 Wire Wire Line
-	8600 5550 8900 5550
+	8750 4400 9050 4400
 Wire Wire Line
-	8600 5650 8900 5650
+	8750 4500 9050 4500
 Wire Wire Line
-	8900 5750 8600 5750
-NoConn ~ 5850 7100
-Text GLabel 5750 6500 0    60   BiDi ~ 0
-SPI_MOSI
-Text GLabel 5750 6600 0    60   BiDi ~ 0
-SPI_MISO
-Text GLabel 5750 6700 0    60   BiDi ~ 0
-SPI_SCK
-Text GLabel 5750 6800 0    60   BiDi ~ 0
-SPI_SS
-Text GLabel 5750 7000 0    60   BiDi ~ 0
-NRF_CE
+	9050 4600 8750 4600
 Wire Wire Line
-	5750 7000 5850 7000
+	5400 7000 5500 7000
 Wire Wire Line
-	5850 6800 5750 6800
+	5500 6800 5400 6800
 Wire Wire Line
-	5750 6700 5850 6700
+	5400 6700 5500 6700
 Wire Wire Line
-	5850 6600 5750 6600
+	5500 6600 5400 6600
 Wire Wire Line
-	5750 6500 5850 6500
-Text GLabel 9500 3900 1    60   Input ~ 0
-3V3
+	5400 6500 5500 6500
 Wire Wire Line
-	9500 4050 9500 3900
+	9650 2900 9650 2750
 Wire Wire Line
-	8650 4950 8650 5050
+	8800 3800 8800 3900
 Wire Wire Line
-	8650 5000 8600 5000
-Connection ~ 8650 5000
+	8800 3850 8750 3850
+Connection ~ 8800 3850
 Wire Wire Line
-	8650 5350 8900 5350
-Text GLabel 9300 3900 1    60   Input ~ 0
-VIN
+	8800 4200 9050 4200
 Wire Wire Line
-	9300 3900 9300 4050
+	9450 2750 9450 2900
 Wire Wire Line
-	8650 5450 8900 5450
+	8800 4300 9050 4300
 Wire Wire Line
-	8650 5350 8650 5450
+	8800 4200 8800 4300
 Wire Wire Line
-	8650 5400 8600 5400
-Connection ~ 8650 5400
-$Comp
-L Battery BT1
-U 1 1 5B1573BE
-P 10700 3800
-F 0 "BT1" H 10800 3900 50  0000 L CNN
-F 1 "Battery" H 10800 3800 50  0000 L CNN
-F 2 "Battery_Holders:Keystone_2479_3xAAA" V 10700 3860 50  0001 C CNN
-F 3 "" V 10700 3860 50  0001 C CNN
-	1    10700 3800
-	1    0    0    -1  
-$EndComp
-Text GLabel 10550 3550 1    60   Input ~ 0
-VCC
-$Comp
-L GNDREF #PWR018
-U 1 1 5B157699
-P 10850 4000
-F 0 "#PWR018" H 10850 3750 50  0001 C CNN
-F 1 "GNDREF" H 10850 3850 50  0000 C CNN
-F 2 "" H 10850 4000 50  0001 C CNN
-F 3 "" H 10850 4000 50  0001 C CNN
-	1    10850 4000
-	1    0    0    -1  
-$EndComp
-$Comp
-L Conn_02x15_Odd_Even J1
-U 1 1 5B158708
-P 6200 3300
-F 0 "J1" H 6250 4100 50  0000 C CNN
-F 1 "Dev breakout" H 6250 2500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_2x15_Pitch2.54mm" H 6200 3300 50  0001 C CNN
-F 3 "" H 6200 3300 50  0001 C CNN
-	1    6200 3300
-	1    0    0    -1  
-$EndComp
-Text GLabel 8900 4450 0    60   BiDi ~ 0
-RX
-Text GLabel 8900 4550 0    60   BiDi ~ 0
-TX
-Text GLabel 8900 4650 0    60   BiDi ~ 0
-D2
-Text GLabel 8900 4750 0    60   BiDi ~ 0
-D3
-Text GLabel 8900 4850 0    60   BiDi ~ 0
-D4
-Text GLabel 8900 4950 0    60   BiDi ~ 0
-D5
-Text GLabel 8900 5050 0    60   BiDi ~ 0
-D6
-Text GLabel 8900 5150 0    60   BiDi ~ 0
-D7
-Text GLabel 8900 5250 0    60   BiDi ~ 0
-D8
-Text GLabel 8900 5350 0    60   BiDi ~ 0
-D9
-Text GLabel 8900 5450 0    60   BiDi ~ 0
-D10
-Text GLabel 8900 5550 0    60   BiDi ~ 0
-D11
-Text GLabel 8900 5650 0    60   BiDi ~ 0
-D12
-Text GLabel 8900 5750 0    60   BiDi ~ 0
-D13
-Text GLabel 6500 3000 2    60   BiDi ~ 0
-A7
-Text GLabel 6500 3100 2    60   BiDi ~ 0
-A6
-Text GLabel 6500 3200 2    60   BiDi ~ 0
-A5
-Text GLabel 6500 3300 2    60   BiDi ~ 0
-A4
-Text GLabel 6500 3500 2    60   BiDi ~ 0
-A2
-Text GLabel 6500 3600 2    60   BiDi ~ 0
-A1
-Text GLabel 6500 3700 2    60   BiDi ~ 0
-A0
-Text GLabel 9900 4850 2    60   BiDi ~ 0
-AREF
-Text GLabel 9950 4500 2    60   BiDi ~ 0
-RESET
+	8800 4250 8750 4250
+Connection ~ 8800 4250
 Wire Wire Line
-	9950 4500 9900 4500
+	10100 3350 10050 3350
 Wire Wire Line
-	9900 4450 9900 4550
-Connection ~ 9900 4500
-Text GLabel 6000 2700 0    60   BiDi ~ 0
-RX
-Text GLabel 6000 2600 0    60   BiDi ~ 0
-TX
-Text GLabel 6000 3000 0    60   BiDi ~ 0
-D2
-Text GLabel 6000 3100 0    60   BiDi ~ 0
-D3
-Text GLabel 6000 3200 0    60   BiDi ~ 0
-D4
-Text GLabel 6000 3300 0    60   BiDi ~ 0
-D5
-Text GLabel 6000 3400 0    60   BiDi ~ 0
-D6
-Text GLabel 6000 3500 0    60   BiDi ~ 0
-D7
-Text GLabel 6000 3600 0    60   BiDi ~ 0
-D8
-Text GLabel 6000 3700 0    60   BiDi ~ 0
-D9
-Text GLabel 6000 3800 0    60   BiDi ~ 0
-D10
-Text GLabel 6000 3900 0    60   BiDi ~ 0
-D11
-Text GLabel 6000 4000 0    60   BiDi ~ 0
-D12
-Text GLabel 6500 4000 2    60   BiDi ~ 0
-D13
-Text GLabel 6000 2800 0    60   BiDi ~ 0
-RESET
-Text GLabel 6500 3900 2    60   Input ~ 0
-3V3
-Text GLabel 6500 3800 2    60   BiDi ~ 0
-AREF
-Text GLabel 6500 3400 2    60   BiDi ~ 0
-A3
-Text GLabel 6500 2900 2    60   Input ~ 0
-VCC
-Text GLabel 6500 2800 2    60   BiDi ~ 0
-RESET
-Text GLabel 9450 6150 3    60   Input ~ 0
-GND
-$Comp
-L VCC #PWR019
-U 1 1 5B15CD53
-P 10850 3550
-F 0 "#PWR019" H 10850 3400 50  0001 C CNN
-F 1 "VCC" H 10850 3700 50  0000 C CNN
-F 2 "" H 10850 3550 50  0001 C CNN
-F 3 "" H 10850 3550 50  0001 C CNN
-	1    10850 3550
-	1    0    0    -1  
-$EndComp
+	10050 3300 10050 3400
+Connection ~ 10050 3350
 Wire Wire Line
-	10700 3600 10700 3550
+	10650 950  10650 900 
 Wire Wire Line
-	10550 3550 10850 3550
-Connection ~ 10700 3550
-Text GLabel 10550 4000 3    60   Input ~ 0
-GND
+	10500 900  10800 900 
+Connection ~ 10650 900 
 Wire Wire Line
-	10550 4000 10850 4000
-Connection ~ 10700 4000
-Text GLabel 9900 5750 2    60   BiDi ~ 0
-A7
-Text GLabel 9900 5650 2    60   BiDi ~ 0
-A6
-Text GLabel 9900 5550 2    60   BiDi ~ 0
-A5
-Text GLabel 9900 5450 2    60   BiDi ~ 0
-A4
-Text GLabel 9900 5250 2    60   BiDi ~ 0
-A2
-Text GLabel 9900 5150 2    60   BiDi ~ 0
-A1
-Text GLabel 9900 5050 2    60   BiDi ~ 0
-A0
-Text GLabel 9900 5350 2    60   BiDi ~ 0
-A3
+	10500 1350 10800 1350
+Connection ~ 10650 1350
 Wire Wire Line
-	10150 5050 9900 5050
+	10300 3900 10050 3900
 Wire Wire Line
-	10150 5150 9900 5150
-Text GLabel 6000 2900 0    60   Input ~ 0
-GND
-Text GLabel 6500 2700 2    60   Input ~ 0
-GND
-Text GLabel 6500 2600 2    60   Input ~ 0
-VIN
+	10300 4000 10050 4000
+Wire Wire Line
+	5900 800  5900 900 
+Wire Wire Line
+	5250 1200 5600 1200
+Wire Wire Line
+	5800 850  5900 850 
+Connection ~ 5900 850 
+Wire Wire Line
+	6850 800  6850 900 
+Wire Wire Line
+	6200 1200 6550 1200
+Wire Wire Line
+	6750 850  6850 850 
+Connection ~ 6850 850 
+Wire Wire Line
+	10300 4100 10050 4100
+Wire Wire Line
+	10300 4200 10050 4200
+Wire Wire Line
+	10300 4300 10050 4300
+Wire Wire Line
+	10300 4400 10050 4400
+Wire Notes Line
+	500  2100 11200 2100
+Wire Notes Line
+	7950 500  7950 5800
+Wire Notes Line
+	10050 2100 10050 500 
+Wire Notes Line
+	500  5800 11200 5800
+Wire Notes Line
+	4350 7750 4350 5800
+Wire Notes Line
+	2650 2100 2650 5800
+Wire Notes Line
+	2650 4150 500  4150
+Text Notes 4650 7500 0    60   ~ 0
+2.4GHz NRF
+Text Notes 800  7500 0    60   ~ 0
+433MHz RF
+Text Notes 2000 5100 0    60   ~ 0
+Audio
+Text Notes 2000 3400 0    60   ~ 0
+Infrared
+Text Notes 4000 1950 0    60   ~ 0
+LEDs
+Text Notes 6300 5500 0    60   ~ 0
+Breakout headers
+Text Notes 9400 5500 0    60   ~ 0
+Controller
+Text Notes 8850 1950 0    60   ~ 0
+Buttons
+Text Notes 10500 1950 0    60   ~ 0
+Battery
 $EndSCHEMATC
