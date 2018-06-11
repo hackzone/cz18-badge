@@ -1,4 +1,4 @@
-update=2018 June 10, Sunday 13:20:23
+update=6/11/2018 9:21:32 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -127,3 +127,4 @@ LibName95=zetex
 LibName96=Zilog
 LibName97=libraries/skoro_sensors
 LibName98=libraries/LED
+LibName99=libraries/badgelife_shitty_connector
