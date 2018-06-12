@@ -2,6 +2,7 @@
   (lib (name Sensors)(type KiCad)(uri "$(KIPRJMOD)/modules/Sensors.pretty")(options "")(descr ""))
   (lib (name LED_SMD)(type KiCad)(uri "$(KIPRJMOD)/modules/LED_SMD.pretty")(options "")(descr ""))
   (lib (name ShittyAddOn)(type KiCad)(uri "$(KIPRJMOD)/modules/ShittyAddOn.pretty")(options "")(descr ""))
-  (lib (name vector-kong)(type KiCad)(uri "$(KIPRJMOD)/design/vector-kong")(options "")(descr ""))
+  (lib (name BatteryHolder)(type KiCad)(uri "$(KIPRJMOD)/modules/BatteryHolder.pretty")(options "")(descr ""))
   (lib (name ArduinoNanoCustom)(type KiCad)(uri "$(KIPRJMOD)/modules/ArduinoNanoCustom.pretty")(options "")(descr ""))
+  (lib (name vector-kong)(type KiCad)(uri "$(KIPRJMOD)/design/vector-kong")(options "")(descr ""))
 )
