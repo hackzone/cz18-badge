@@ -28,5 +28,5 @@
 | ---- | ---- |
 | A2 | Mode switch |
 | A3 | Slot select |
-| A4 | Learn  |
-| A5 | Play |
+| A6 | Learn  |
+| A7 | Play |

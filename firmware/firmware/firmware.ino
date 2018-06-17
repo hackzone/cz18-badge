@@ -1,37 +1,40 @@
 
 /**
- * === PIN LAYOUT ===
- * IR:
+   === PIN LAYOUT ===
+   IR:
  * * D3 - Transmitter
  * * D7 - Receiver
- * 
- * 433MHz RF:
+
+   433MHz RF:
  * * D8 - Transmitter
  * * D2 - Receiver
- * 
- * LED Strip:
+
+   LED Strip:
  * * D4 - Input
- * 
- * Buzzers:
+
+   Buzzers:
  * * D5 & D6 - Buzzer 1
  * * D9 & D10 - Buzzer 2
- * 
- * Buttons:
- * A2 - Mode switch
- * A3 - Slot select
- * A4 - Learn
- * A5 - Play
- * 
- */
- 
+
+   Buttons:
+   A2 - Mode switch
+   A3 - Slot select
+   A6 - Learn
+   A7 - Play
+
+*/
+
 #include <Arduino.h>
 #include <Bounce2.h>
 
-#define DEBUG
-#ifdef DEBUG
-#define DEBUGSERIAL(x) Serial.print(x);
+#define DEBUG 1
+
+#if DEBUG
+#  define DEBUGSERIAL(...) Serial.print(__VA_ARGS__);
+#  define DEBUGSERIALN(...) Serial.println(__VA_ARGS__);
 #else
-#define DEBUGSERIAL(x) { };
+#  define DEBUGSERIAL(...)
+#  define DEBUGSERIALN(...)
 #endif
 
 #define DEBUGSERIALN(x) DEBUGSERIAL(x); DEBUGSERIAL("\n");
@@ -71,8 +74,8 @@ void loop() {
   if (read_button != BUTTON_UNDEFINED) {
     DEBUGSERIAL("Read button: ");
     DEBUGSERIALN(read_button);
-    
-    switch(read_button) {
+
+    switch (read_button) {
       case MODE_BUTTON:
         increment_switchable(&module, MODULE_COUNT);
         slot = 0;
@@ -114,17 +117,17 @@ int read_pressed_button() {
     // The button is pressed if the value of read is the false when it is open high or true when it is open low
     // and it has been updated.
     if (BUTTONS[i].update() && (BUTTON_OPEN_HIGH != BUTTONS[i].read())) {
-      
+
       if (output != BUTTON_UNDEFINED) {
         // Already read a button, so we have two buttons pressed at the same time
         // for now, this is undefined behaviour.
         return BUTTON_UNDEFINED;
       }
-      
+
       output = i;
     }
   }
-  
+
   return output;
 }
 
