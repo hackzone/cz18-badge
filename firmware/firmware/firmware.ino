@@ -9,6 +9,32 @@
 #define IR_RECV_PIN 7
 #define RC_RECV_INT 0 // Digital pin 2 == interrupt 0
 
+
+/**
+ * === PIN LAYOUT ===
+ * IR:
+ * * D3 - Transmitter
+ * * D7 - Receiver
+ * 
+ * 433MHz RF:
+ * * D8 - Transmitter
+ * * D2 - Receiver
+ * 
+ * LED Strip:
+ * * D4 - Input
+ * 
+ * Buzzers:
+ * * D5 & D6 - Buzzer 1
+ * * D9 & D10 - Buzzer 2
+ * 
+ * Buttons:
+ * A2 - Mode switch
+ * A3 - Slot select
+ * A4 - Learn
+ * A5 - Play
+ * 
+ */
+
 // Define the array of leds
 CRGB leds[LED_STRIP_SIZE];
 Volume vol;
