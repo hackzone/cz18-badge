@@ -34,9 +34,9 @@ void loop() {
   static uint8_t hue = 0;
 
   if (mySwitch.available()) {
-    
+
     int value = mySwitch.getReceivedValue();
-    
+
     if (value == 0) {
       Serial.print("Unknown encoding");
     } else {
@@ -53,20 +53,7 @@ void loop() {
   }
 
   for(int i = 0; i < LED_STRIP_SIZE; i++) {
-    // Set the i'th led to red 
-    leds[i] = CHSV(hue++, 255, 255);
-    // Show the leds
-    FastLED.show(); 
-    // now that we've shown the leds, reset the i'th led to black
-    // leds[i] = CRGB::Black;
-    fadeall();
-    // Wait a little bit before we loop around and do it again
-    delay(10);
-  }
-
-  // Now go in the other direction.  
-  for(int i = (LED_STRIP_SIZE)-1; i >= 0; i--) {
-    // Set the i'th led to red 
+    // Set the i'th led to red
     leds[i] = CHSV(hue++, 255, 255);
     // Show the leds
     FastLED.show();
@@ -76,7 +63,20 @@ void loop() {
     // Wait a little bit before we loop around and do it again
     delay(10);
   }
-  
+
+  // Now go in the other direction.
+  for(int i = (LED_STRIP_SIZE)-1; i >= 0; i--) {
+    // Set the i'th led to red
+    leds[i] = CHSV(hue++, 255, 255);
+    // Show the leds
+    FastLED.show();
+    // now that we've shown the leds, reset the i'th led to black
+    // leds[i] = CRGB::Black;
+    fadeall();
+    // Wait a little bit before we loop around and do it again
+    delay(10);
+  }
+
   if (ir_receiver.decode(&ir_decode)) {
     Serial.print("Received: ");
     Serial.print(ir_decode.value, HEX);
@@ -84,11 +84,11 @@ void loop() {
     Serial.println();
     ir_receiver.resume();
   }
-  
+
   if (lights) {
-    
+
   } else {
-    
+
   }
 }
 
