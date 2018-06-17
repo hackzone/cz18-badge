@@ -96,8 +96,6 @@ LIBS:Xicor
 LIBS:zetex
 LIBS:Zilog
 LIBS:skoro_sensors
-LIBS:badgelife_shitty_connector
-LIBS:cz18_badge-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
@@ -867,13 +865,13 @@ F 3 "" H 9500 1550 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 Text GLabel 8500 1550 3    60   Input ~ 0
-VCC
+GND
 Text GLabel 8850 1550 3    60   Input ~ 0
-VCC
+GND
 Text GLabel 9200 1550 3    60   Input ~ 0
-VCC
+GND
 Text GLabel 9500 1550 3    60   Input ~ 0
-VCC
+GND
 Text GLabel 8500 1150 1    60   Output ~ 0
 BTN_MODE
 Text GLabel 8850 1150 1    60   Output ~ 0
