@@ -1,4 +1,3 @@
-
 /**
    === PIN LAYOUT ===
    IR:
@@ -13,7 +12,7 @@
  * * D4 - Input
 
    Buzzers:
- * * D5 & D6 - Buzzer 1
+   * * D5 & D6 - Buzzer 1
  * * D9 & D10 - Buzzer 2
 
    Buttons:
@@ -26,6 +25,8 @@
 
 #include <Arduino.h>
 #include <Bounce2.h>
+#include "rfmodule.h"
+
 
 #define DEBUG 1
 
@@ -58,6 +59,13 @@ const int BUTTON_UNDEFINED = -1;
 Bounce BUTTONS[BUTTON_COUNT];
 
 int module = RF_MODULE;
+
+RFModule radio;
+// listen mode of the module, can be set to continuous for switch commands, may be on timed for listen for broadcast messaging, off is DnD or power saver of the badge
+const uint8_t RX_CONTINUOUS = 0,
+              RX_TIMED = 1,
+              RX_OFF = 2;
+
 int slot = 0;
 
 void setup_buttons();
@@ -67,9 +75,13 @@ void increment_switchable(int *variable, int max_count);
 void setup() {
   Serial.begin(115200);
   setup_buttons();
+
+  radio.setRxState(RX_CONTINUOUS);
 }
 
 void loop() {
+
+
   int read_button = read_pressed_button();
   if (read_button != BUTTON_UNDEFINED) {
     DEBUGSERIAL("Read button: ");
