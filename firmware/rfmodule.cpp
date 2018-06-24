@@ -8,6 +8,7 @@ public:
   RFModule();
 };
 RFModule::RFModule(){
+	
   Serial.begin(9600);
   rcs.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
 }
