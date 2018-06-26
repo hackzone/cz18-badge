@@ -15,26 +15,26 @@ char *song = "TakeOnMe:d=4,o=4,b=160:8f#5,8f#5,8f#5,8d5,8p,8b,8p,8e5,8p,8e5,8p,8
 
 
 SoftSynth chan1((uint8_t)5);
-//SoftSynth chan2((uint8_t)6);
+SoftSynth chan2((uint8_t)9);
 //SoftSynth chan3((uint8_t)6);
 
 void setup() {
     Serial.begin(9600);
 }
 
-void loop() {
-  Serial.println("Bump");
-  chan1.play(NOTE_C6, SQUARE, 255);
-//  chan2.play(NOTE_C6, SQUARE, 255);
-//  chan3.play(NOTE_C6, SQUARE, 255);
-  delay(500*64);
-//  chan1.play(NOTE_C6, SAW, 255);
+//void loop() {
+//  Serial.println("Bump");
+//  chan1.play(NOTE_C6, SQUARE, 255);
+////  chan2.play(NOTE_C6, SQUARE, 255);
+////  chan3.play(NOTE_C6, SQUARE, 255);
 //  delay(500*64);
-  chan1.play(NOTE_G5, SQUARE, 255);
-//  chan2.play(NOTE_G5, SQUARE, 255);
-//  chan3.play(NOTE_G5, SQUARE, 255);
-  delay(500*64);
-}
+////  chan1.play(NOTE_C6, SAW, 255);
+////  delay(500*64);
+//  chan1.play(NOTE_G4, SQUARE, 255);
+////  chan2.play(NOTE_G5, SQUARE, 255);
+////  chan3.play(NOTE_G5, SQUARE, 255);
+//  delay(500*64);
+//}
 
 #define isdigit(n) (n >= '0' && n <= '9')
 
@@ -189,8 +189,9 @@ void play_rtttl(char *p)
       Serial.print(notes[(scale - 4) * 12 + note], 10);
       Serial.print(") ");
       Serial.println(duration, 10);
-      chan1.play(notes[(scale - 4) * 12 + note], SQUARE, 0.2);
-      delay(duration);
+      chan1.play(notes[(scale - 4-1) * 12 + note], SQUARE, 1);
+      chan2.play(notes[(scale - 4 - 1) * 12 + note], SAW, 1);
+      delay(duration * 256);
       chan1.stop();
     }
     else
@@ -202,9 +203,9 @@ void play_rtttl(char *p)
   }
 }
 
-//void loop(void)
-//{
-//  play_rtttl(song);
-//  Serial.println("Done.");
-//  while(1);
-//}
+void loop(void)
+{
+  play_rtttl(song);
+  Serial.println("Done.");
+  while(1);
+}
