@@ -142,6 +142,7 @@ public:
 
     uint16_t wantedCycles;
     uint16_t cyclesSinceLast = 0;
+    uint16_t x;
 
     SoftSynth(uint8_t pin);
     void play(uint16_t frequency, Voice* voice, float volume);

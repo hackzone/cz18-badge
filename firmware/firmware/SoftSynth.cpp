@@ -50,6 +50,11 @@ void start_timer() {
     TCNT1 = 0;
 
     /* Enable CTC mode */
+//    sbi(TCCR1B, WGM12);
+
+    /* Debug: FastPWM 10 bit */
+    sbi(TCCR1A, WGM10);
+    sbi(TCCR1A, WGM11);
     sbi(TCCR1B, WGM12);
 
     /* Set prescaler to 1 */
@@ -59,7 +64,10 @@ void start_timer() {
     OCR1A = TIMER_CYCLES;
 
     /* Enable timer interrupt */
-    sbi(TIMSK1, OCIE1A);
+//    sbi(TIMSK1, OCIE1A);
+
+    /* Debug: overflow instead of CMP */
+    sbi(TIMSK1, TOIE1);
 
     sei();
 }
@@ -161,6 +169,7 @@ void SoftSynth::play(uint16_t frequency, Voice *voice, float volume) {
     this->voiceIndex = 0;
     this->volume = volume;
     this->wantedCycles = (F_CPU / (this->frequency * voice->length)) - 1;
+    this->x = 1000 / cur_synth->wantedCycles;
 
 #ifdef DEBUG
     Serial.print("wc ");
@@ -185,9 +194,10 @@ void SoftSynth::stop() {
     remove_channel(this);
 }
 
-ISR(TIMER1_COMPA_vect) {
-    short start = TCNT1;
-    volatile uint8_t output = 0;
+//ISR(TIMER1_COMPA_vect) {
+ISR(TIMER1_OVF_vect) {
+//    volatile short start = TCNT1;
+//    volatile uint8_t output = 0;
     
 //    Serial.print("TCNT1: ");
 //    Serial.println(start);
@@ -212,13 +222,14 @@ ISR(TIMER1_COMPA_vect) {
 
         intensity_diff = cur_synth->voice->intensities[cur_synth->nextVoiceIndex] -
                          cur_synth->voice->intensities[cur_synth->voiceIndex];
-//        analogWrite(cur_synth->pin, (char)((cur_synth->voice->intensities[cur_synth->voiceIndex] +
-//                                    (char)(intensity_diff * (cur_synth->cyclesSinceLast / cur_synth->wantedCycles)))));
+//        analogWrite(cur_synth->pin, (uint8_t)((cur_synth->voice->intensities[cur_synth->voiceIndex] +
+//                                    (int16_t)((int16_t)(intensity_diff * (cur_synth->cyclesSinceLast * cur_synth->x))/1000))));
 //          output += (uint8_t)((cur_synth->voice->intensities[cur_synth->voiceIndex] +
-//                                    (uint8_t)(intensity_diff * (cur_synth->cyclesSinceLast / cur_synth->wantedCycles))));
+//                                    (int16_t)((int16_t)(intensity_diff * (cur_synth->cyclesSinceLast * cur_synth->x))/1000)));
         sbi(TCCR0A, COM0A1);
+        sbi(TCCR0A, COM0B1);
         OCR0A = (uint8_t)((cur_synth->voice->intensities[cur_synth->voiceIndex] +
-                                    (uint8_t)(intensity_diff * (cur_synth->cyclesSinceLast / cur_synth->wantedCycles)))); // set pwm duty
+                                    (int16_t)((int16_t)(intensity_diff * (cur_synth->cyclesSinceLast * cur_synth->x))/1000))); // set pwm duty
         OCR0B = OCR0A;
 //          sbi(TCCR0A, COM0A1);
 //          OCR0A = 128;
@@ -228,10 +239,10 @@ ISR(TIMER1_COMPA_vect) {
         cur_chan = cur_chan->next;
     }
 //    analogWrite(5, output * 0.5);
-    start -= TCNT1;
-if(random(0, 100) > 95){
-    Serial.print("Cycles: ");
-    Serial.println(start);
-}
+//    start -= TCNT1;
+//if(random(0, 100) > 97){
+//    Serial.print("Cycles: ");
+//    Serial.println(start);
+//}
     TCNT1 = 0;
 }

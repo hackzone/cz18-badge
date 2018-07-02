@@ -10,8 +10,8 @@ NOTE_C6, NOTE_CS6, NOTE_D6, NOTE_DS6, NOTE_E6, NOTE_F6, NOTE_FS6, NOTE_G6, NOTE_
 NOTE_C7, NOTE_CS7, NOTE_D7, NOTE_DS7, NOTE_E7, NOTE_F7, NOTE_FS7, NOTE_G7, NOTE_GS7, NOTE_A7, NOTE_AS7, NOTE_B7
 };
 //char *song = "MissionImp:d=16,o=6,b=95:32d,32d#,32d,32d#,32d,32d#,32d,32d#,32d,32d,32d#,32e,32f,32f#,32g,g,8p,g,8p,a#,p,c7,p,g,8p,g,8p,f,p,f#,p,g,8p,g,8p,a#,p,c7,p,g,8p,g,8p,f,p,f#,p,a#,g,2d,32p,a#,g,2c#,32p,a#,g,2c,a#5,8c,2p,32p,a#5,g5,2f#,32p,a#5,g5,2f,32p,a#5,g5,2e,d#,8d";
-//char *song = "20thCenFox:d=16,o=5,b=140:b,8p,b,b,2b,p,c6,32p,b,32p,c6,32p,b,32p,c6,32p,b,8p,b,b,b,32p,b,32p,b,32p,b,32p,b,32p,b,32p,b,32p,g#,32p,a,32p,b,8p,b,b,2b,4p,8e,8g#,8b,1c#6,8f#,8a,8c#6,1e6,8a,8c#6,8e6,1e6,8b,8g#,8a,2b";
-char *song = "TakeOnMe:d=4,o=4,b=160:8f#5,8f#5,8f#5,8d5,8p,8b,8p,8e5,8p,8e5,8p,8e5,8g#5,8g#5,8a5,8b5,8a5,8a5,8a5,8e5,8p,8d5,8p,8f#5,8p,8f#5,8p,8f#5,8e5,8e5,8f#5,8e5,8f#5,8f#5,8f#5,8d5,8p,8b,8p,8e5,8p,8e5,8p,8e5,8g#5,8g#5,8a5,8b5,8a5,8a5,8a5,8e5,8p,8d5,8p,8f#5,8p,8f#5,8p,8f#5,8e5,8e5";
+char *song = "20thCenFox:d=16,o=5,b=140:b,8p,b,b,2b,p,c6,32p,b,32p,c6,32p,b,32p,c6,32p,b,8p,b,b,b,32p,b,32p,b,32p,b,32p,b,32p,b,32p,b,32p,g#,32p,a,32p,b,8p,b,b,2b,4p,8e,8g#,8b,1c#6,8f#,8a,8c#6,1e6,8a,8c#6,8e6,1e6,8b,8g#,8a,2b";
+//char *song = "TakeOnMe:d=4,o=4,b=160:8f#5,8f#5,8f#5,8d5,8p,8b,8p,8e5,8p,8e5,8p,8e5,8g#5,8g#5,8a5,8b5,8a5,8a5,8a5,8e5,8p,8d5,8p,8f#5,8p,8f#5,8p,8f#5,8e5,8e5,8f#5,8e5,8f#5,8f#5,8f#5,8d5,8p,8b,8p,8e5,8p,8e5,8p,8e5,8g#5,8g#5,8a5,8b5,8a5,8a5,8a5,8e5,8p,8d5,8p,8f#5,8p,8f#5,8p,8f#5,8e5,8e5";
 
 
 SoftSynth chan1((uint8_t)5);
@@ -20,21 +20,23 @@ SoftSynth chan2((uint8_t)9);
 
 void setup() {
     Serial.begin(9600);
+    chan1.play(NOTE_C4, SQUARE, 255);
 }
 
-//void loop() {
+void loop() {
+  chan1.play(NOTE_C4, SQUARE, 255);
 //  Serial.println("Bump");
-//  chan1.play(NOTE_C6, SQUARE, 255);
-////  chan2.play(NOTE_C6, SQUARE, 255);
+//  chan1.play(NOTE_C5, SQUARE, 255);
+//  chan2.play(NOTE_C6, SQUARE, 255);
 ////  chan3.play(NOTE_C6, SQUARE, 255);
-//  delay(500*64);
-////  chan1.play(NOTE_C6, SAW, 255);
-////  delay(500*64);
-//  chan1.play(NOTE_G4, SQUARE, 255);
+  delay(500*64);
+//  chan1.play(NOTE_C6, SAW, 255);
+  delay(500*64);
+//  chan1.play(NOTE_C6, SQUARE, 255);
 ////  chan2.play(NOTE_G5, SQUARE, 255);
 ////  chan3.play(NOTE_G5, SQUARE, 255);
 //  delay(500*64);
-//}
+}
 
 #define isdigit(n) (n >= '0' && n <= '9')
 
@@ -189,9 +191,9 @@ void play_rtttl(char *p)
       Serial.print(notes[(scale - 4) * 12 + note], 10);
       Serial.print(") ");
       Serial.println(duration, 10);
-      chan1.play(notes[(scale - 4-1) * 12 + note], SQUARE, 1);
-      chan2.play(notes[(scale - 4 - 1) * 12 + note], SAW, 1);
-      delay(duration * 256);
+      chan1.play(notes[(scale - 4 - 1) * 12 + note], SQUARE, 1);
+//      chan2.play(notes[(scale - 4 - 1) * 12 + note], SAW, 1);
+      delay(duration * 64);
       chan1.stop();
     }
     else
@@ -203,9 +205,9 @@ void play_rtttl(char *p)
   }
 }
 
-void loop(void)
-{
-  play_rtttl(song);
-  Serial.println("Done.");
-  while(1);
-}
+//void loop(void)
+//{
+//  play_rtttl(song);
+//  Serial.println("Done.");
+//  while(1);
+//}
