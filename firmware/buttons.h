@@ -2,7 +2,6 @@
 #define __BUTTONS_H_INCLUDED__
 
 #include "common.h"
-#include <Bounce2.h>
 
 class Buttons {
   public:
@@ -22,10 +21,16 @@ class Buttons {
     button_type currently_pressed();
     
   private:
+    const static int SWITCH_READ_COUNT;
+
+    bool read_update_button(int bindex);
+    bool read_button_state(int bindex);
+
     int pin_mode;
     int debounce_ms;
     bool open_high;
-    Bounce buttons[Buttons::BUTTON_COUNT];
+    bool button_state[BUTTON_COUNT];
+    int last_update[BUTTON_COUNT];
 };
 
 #endif
