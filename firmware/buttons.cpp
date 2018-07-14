@@ -1,7 +1,7 @@
 #include "buttons.h"
 
-const int Buttons::BUTTON_PINS[BUTTON_COUNT] { A2, A3, A6, A7 };
-const int Buttons::SWITCH_READ_COUNT = 50;
+const uint8_t Buttons::BUTTON_PINS[BUTTON_COUNT] { A2, A3, A6, A7 };
+const uint8_t Buttons::SWITCH_READ_COUNT = 50;
 
 
 Buttons::Buttons(int pin_mode, int debounce_ms, bool open_high) :
@@ -40,7 +40,8 @@ Buttons::button_type Buttons::currently_pressed()
     {
       if (output != (int)Buttons::button_type::NONE)
       {
-        // Seen another pressed button alread, so that's undefined behaviour
+        // Seen another pressed button already, so that's undefined behaviour
+        DEBUG_PRINTLN("Received multiple button presses concurrently");
         return Buttons::button_type::NONE;
       }
 

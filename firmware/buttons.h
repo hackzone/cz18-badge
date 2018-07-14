@@ -5,8 +5,8 @@
 
 class Buttons {
   public:
-    const static int BUTTON_COUNT = 4;
-    const static int BUTTON_PINS[BUTTON_COUNT];
+    const static uint8_t BUTTON_COUNT = 4;
+    const static uint8_t BUTTON_PINS[BUTTON_COUNT];
     
     enum button_type {
       MODE = 0,
@@ -21,12 +21,12 @@ class Buttons {
     button_type currently_pressed();
     
   private:
-    const static int SWITCH_READ_COUNT;
+    const static uint8_t SWITCH_READ_COUNT;
 
     bool read_update_button(int bindex);
     bool read_button_state(int bindex);
 
-    int pin_mode;
+    uint8_t pin_mode;
     int debounce_ms;
     bool open_high;
     bool button_state[BUTTON_COUNT];
