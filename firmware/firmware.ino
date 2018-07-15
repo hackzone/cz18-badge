@@ -111,6 +111,10 @@ void ir_learn(uint8_t slot) {
                 }
             }
             if (known) {
+                DEBUG_PRINT("Saving into IR slot: ");
+                DEBUG_PRINT(slot);
+                DEBUG_PRINT(" value: ");
+                DEBUG_PRINTLN(irslot.value);
                 eeprom_write_ir_slot(slot, &irslot);
             }
             ir.resume();
@@ -124,6 +128,16 @@ void ir_play(uint8_t slot) {
     uint32_t val = ir_play_slot.value;
     uint32_t addr = ir_play_slot.address;
     uint32_t len = ir_play_slot.length;
+
+    DEBUG_PRINT("Sending IR: ");
+    DEBUG_PRINT(ir_play_slot.protocol);
+    DEBUG_PRINT(" ");
+    DEBUG_PRINT(val);
+    DEBUG_PRINT(" ");
+    DEBUG_PRINT(len);
+    DEBUG_PRINT(" ");
+    DEBUG_PRINTLN(addr);
+
     switch (ir_play_slot.protocol) {
         case AIWA_RC_T501:
             ir_send.sendAiwaRCT501(val);

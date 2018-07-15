@@ -28,19 +28,21 @@ uint32_t eeprom_slot_address(int module, int slot)
 
 uint8_t eeprom_read_byte(int address)
 {
-    return EEPROM.read(address);
+    return (uint8_t)EEPROM.read(address);
 }
 
 uint16_t eeprom_read_word(int address)
 {
-    uint16_t ret = eeprom_read_byte(address);
-    ret = (uint16_t)((ret << 8) | eeprom_read_byte(address + 1));
+    uint16_t ret = (eeprom_read_byte(address) & 0xFF);
+    ret = (uint16_t)((ret << 8) | (eeprom_read_byte(address + 1) & 0xFF));
+    return ret;
 }
 
 uint32_t eeprom_read_dword(int address)
 {
-    uint32_t ret = eeprom_read_word(address);
-    ret = (uint32_t)((ret << 16) | eeprom_read_word(address + 2));
+    uint32_t ret = (eeprom_read_word(address) & 0xFFFF);
+    ret = (uint32_t)((ret << 16) | (eeprom_read_word(address + 2) & 0xFFFF));
+    return ret;
 }
 
 void eeprom_read_ir_slot(int slot_index, IRSlot * slot)
@@ -65,13 +67,13 @@ void eeprom_write_byte(int address, uint8_t value) {
 }
 
 void eeprom_write_word(int address, uint16_t value) {
-    eeprom_write_byte(address, (value & 0xFF));
-    eeprom_write_byte(address + 1, ((value >> 8) & 0xFF));
+    eeprom_write_byte(address, ((value >> 8) & 0xFF));
+    eeprom_write_byte(address + 1, (value & 0xFF));
 }
 
 void eeprom_write_dword(int address, uint32_t value) {
-    eeprom_write_word(address, (value & 0xFFFF));
-    eeprom_write_word(address + 2, ((value >> 16) & 0xFFFF));
+    eeprom_write_word(address, ((value >> 16) & 0xFFFF));
+    eeprom_write_word(address + 2, (value & 0xFFFF));
 }
 
 void eeprom_write_ir_slot(int slot_index, IRSlot * slot) {
