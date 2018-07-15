@@ -8,10 +8,11 @@
 const uint8_t LED_DATA_PIN = 4;
 const uint8_t LED_COUNT = 7;
 
-const uint8_t DEBOUNCE_INTERVAL_MS = 25;
+const uint8_t DEBOUNCE_INTERVAL_MS = 10;
 const uint8_t BUTTON_INPUT_MODE = INPUT;
 
 Buttons buttons(BUTTON_INPUT_MODE, DEBOUNCE_INTERVAL_MS);
+RFModule radio;
 
 CRGB leds[LED_COUNT];
 uint8_t module = RF_MODULE;
@@ -40,24 +41,23 @@ void setup() {
   FastLED.setBrightness(5);
 
   set_leds();
+  radio = RFModule();
 }
 
 void loop() {
-  delay(100);
+  
   Buttons::button_type read_button = buttons.currently_pressed();
   if (read_button != Buttons::NONE) {
     DEBUG_PRINT("Read button: ");
     DEBUG_PRINTLN(read_button);
 
     switch (read_button) {
-      case Buttons::LEARN:
       case Buttons::MODE:
         increment_switchable(&module, MODULE_COUNT);
         DEBUG_PRINT("Switched to module #");
         DEBUG_PRINTLN(module);
         set_leds();
         break;
-      case Buttons::PLAY:
       case Buttons::SLOT:
           increment_switchable(&slot, SLOT_COUNT);
           DEBUG_PRINT("Switched to slot #");
@@ -66,16 +66,16 @@ void loop() {
           DEBUG_PRINTLN(module);
         set_leds();
         break;
-//      case Buttons::LEARN:
-//        if(learn_routines[module]) {
-//            learn_routines[module](slot);
-//        }
-//        break;
-//      case Buttons::PLAY:
-//          if(play_routines[module]) {
-//              play_routines[module](slot);
-//          }
-//        break;
+      case Buttons::LEARN:
+        if(learn_routines[module]) {
+            learn_routines[module](slot);
+        }
+        break;
+      case Buttons::PLAY:
+          if(play_routines[module]) {
+              play_routines[module](slot);
+          }
+        break;
       default:
         // Do nothing if unknown
         break;

@@ -11,7 +11,7 @@ public:
 RFModule::RFModule(){
 	//9k6 is advised max for cheap modules, possibly go lower
   
-  //rcs.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
+  rcs.enableReceive(0);  // Receiver on interrupt 0 => that is pin #2
 }
 
 
