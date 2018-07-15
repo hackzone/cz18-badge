@@ -1,84 +1,60 @@
 #include "buttons.h"
 
 const uint8_t Buttons::BUTTON_PINS[BUTTON_COUNT] { A2, A3, A6, A7 };
-const uint8_t Buttons::SWITCH_READ_COUNT = 50;
 
+const uint8_t Button::SWITCH_READ_COUNT = 10;
 
-Buttons::Buttons(int pin_mode, int debounce_ms, bool open_high) :
-        pin_mode(pin_mode),
-        debounce_ms(debounce_ms),
-        open_high(open_high)
+Button::Button() : Bounce()
 {
-  for (int i = 0; i < Buttons::BUTTON_COUNT; ++i) 
-  {
-    this->button_state[i] = false;
-    this->last_update[i] = (int)millis();
-  }
-}
-
-void Buttons::setup()
-{
-  for(int32_t i = 0; i < Buttons::BUTTON_COUNT; ++i)
-  {
-    pinMode(Buttons::BUTTON_PINS[i], this->pin_mode);
-  }
-}
-
-Buttons::button_type Buttons::currently_pressed()
-{
-  int output = (int)Buttons::NONE;
-  bool buttonstates[] = { false, false, false, false };
   
-  for (int i = 0; i < Buttons::BUTTON_COUNT; ++i)
-  {
-    buttonstates[i] = this->read_button_state(i);
-  }
-
-  for (int i = 0; i < Buttons::BUTTON_COUNT; ++i)
-  {
-    if(buttonstates[i])
-    {
-      if (output != (int)Buttons::NONE)
-      {
-        // Seen another pressed button already, so that's undefined behaviour
-        DEBUG_PRINTLN("Received multiple button presses concurrently");
-        return Buttons::NONE;
-      }
-
-      output = i;
-    }
-  }
-
-  return (Buttons::button_type)output;
 }
 
-bool Buttons::read_update_button(int bindex)
+bool Button::readCurrentState()
 {
-  bool button_pushed = this->read_button_state(bindex);
-  bool updated = false;
-  int cur = (int)millis();
-
-  if (((cur - this->last_update[bindex]) >= this->debounce_ms))
+  for(int16_t i = 0; i < Button::SWITCH_READ_COUNT; i++)
   {
-    updated = (button_pushed != this->button_state[bindex]);
-    this->button_state[bindex] = button_pushed;
-    this->last_update[bindex] = cur;
-  }
-
-  return updated && button_pushed;
-}
-
-bool Buttons::read_button_state(int bindex)
-{
-  for(int16_t i = 0; i < Buttons::SWITCH_READ_COUNT; i++)
-  {
-//    DEBUG_PRINTLN(analogRead(Buttons::BUTTON_PINS[bindex]))
-    if(analogRead(Buttons::BUTTON_PINS[bindex]))
+    if(analogRead(this->pin))
     {
       return false;
     }
   }
   
   return true;
+}
+
+
+Buttons::Buttons(int pin_mode, int debounce_ms) :
+        pin_mode(pin_mode),
+        debounce_ms(debounce_ms)
+{
+}
+
+void Buttons::setup()
+{
+  for(int32_t i = 0; i < Buttons::BUTTON_COUNT; ++i)
+  {
+    this->buttons[i].attach(Buttons::BUTTON_PINS[i], this->pin_mode);
+    this->buttons[i].interval(this->debounce_ms);
+  }
+}
+
+Buttons::button_type Buttons::currently_pressed()
+{
+  int output = (int)Buttons::NONE;
+  
+  for (int i = 0; i < Buttons::BUTTON_COUNT; ++i)
+  {
+    if (this->buttons[i].update() && this->buttons[i].read())
+    {  
+      if (output != (int)Buttons::NONE) 
+      {
+        return Buttons::NONE;
+      }
+      
+      output = i;
+    }
+  }
+  
+  return (Buttons::button_type)output;
 }
 

@@ -8,10 +8,9 @@ const uint8_t LED_DATA_PIN = 4;
 const uint8_t LED_COUNT = 7;
 
 const uint8_t DEBOUNCE_INTERVAL_MS = 15;
-const uint8_t BUTTON_INPUT_MODE = INPUT_PULLUP;
-const bool BUTTON_OPEN_HIGH = true;
+const uint8_t BUTTON_INPUT_MODE = INPUT;
 
-Buttons buttons(BUTTON_INPUT_MODE, DEBOUNCE_INTERVAL_MS, BUTTON_OPEN_HIGH);
+Buttons buttons(BUTTON_INPUT_MODE, DEBOUNCE_INTERVAL_MS);
 
 CRGB leds[LED_COUNT];
 uint8_t module = RF_MODULE;
@@ -26,7 +25,7 @@ void set_leds() {
     }
 
     for(int i = 0; i < SLOT_COUNT; i++) {
-        leds[i + MODULE_COUNT] = module == i ? CRGB::Turquoise : CRGB::Black;
+        leds[i + MODULE_COUNT] = slot == i ? CRGB::Turquoise : CRGB::Black;
     }
 
     FastLED.show();
@@ -49,23 +48,20 @@ void loop() {
     DEBUG_PRINTLN(read_button);
 
     switch (read_button) {
-      case Buttons::LEARN: // TODO: Remove this debug line!
+      case Buttons::LEARN:
       case Buttons::MODE:
         increment_switchable(&module, MODULE_COUNT);
-        slot = 0;
         DEBUG_PRINT("Switched to module #");
         DEBUG_PRINTLN(module);
         set_leds();
         break;
-      case Buttons::PLAY: // TODO: Remove this debug line!
+      case Buttons::PLAY:
       case Buttons::SLOT:
-        if (module == RF_MODULE || module == IR_MODULE) {
           increment_switchable(&slot, SLOT_COUNT);
           DEBUG_PRINT("Switched to slot #");
           DEBUG_PRINT(slot);
           DEBUG_PRINT(" within module #");
           DEBUG_PRINTLN(module);
-        }
         set_leds();
         break;
 //      case Buttons::LEARN:
