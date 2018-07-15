@@ -39,9 +39,9 @@
 #endif
 
 
-const uint8_t   IR_MODULE = 0,
-            TUNE_MODULE = 1,
-            RF_MODULE = 2;
+const uint8_t IR_MODULE = 0,
+        TUNE_MODULE = 1,
+        RF_MODULE = 2;
 
 const uint8_t SLOT_COUNT = 4;
 const uint8_t MODULE_COUNT = 3;
@@ -52,23 +52,24 @@ const uint8_t MODULE_COUNT = 3;
  * 4x IRSlot
  * 4x RFSlot
  */
-const uint8_t ID_EEPROM_ADDR = 0;
-const uint8_t SLOT_EEPROM_ADDR_START = 2;
-const uint8_t MAX_IR_COMMAND_SIZE = 100;
 
-typedef struct IRSlot
-{
+
+const int IR_SEND_PIN = 3;
+const int IR_RECV_PIN = 7;
+
+typedef struct IRSlot {
     bool used;
-    char command[MAX_IR_COMMAND_SIZE];
+    uint16_t protocol;
+    uint32_t address;
+    uint32_t length;
+    uint32_t value;
 } IRSlot;
 
-typedef struct RFSlot
-{
+typedef struct RFSlot {
     bool used;
     int32_t command_value;
 } RFSlot;
 
-uint16_t badge_id();
 void increment_switchable(int *variable, int max_count);
 
 #endif
