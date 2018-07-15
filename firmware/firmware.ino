@@ -1,13 +1,14 @@
 #include "common.h"
 #include "buttons.h"
 #include "eeprom.h"
+#include "rfmodule.h"
 
 #include <FastLED.h>
 
 const uint8_t LED_DATA_PIN = 4;
 const uint8_t LED_COUNT = 7;
 
-const uint8_t DEBOUNCE_INTERVAL_MS = 15;
+const uint8_t DEBOUNCE_INTERVAL_MS = 25;
 const uint8_t BUTTON_INPUT_MODE = INPUT;
 
 Buttons buttons(BUTTON_INPUT_MODE, DEBOUNCE_INTERVAL_MS);
@@ -42,6 +43,7 @@ void setup() {
 }
 
 void loop() {
+  delay(100);
   Buttons::button_type read_button = buttons.currently_pressed();
   if (read_button != Buttons::NONE) {
     DEBUG_PRINT("Read button: ");
