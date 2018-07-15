@@ -4,14 +4,16 @@
 #include "buttons.h"
 #include "eeprom.h"
 #include  "ir_protocols.h"
+#include "rfmodule.h"
 
 const uint8_t LED_DATA_PIN = 4;
 const uint8_t LED_COUNT = 7;
 
-const uint8_t DEBOUNCE_INTERVAL_MS = 15;
+const uint8_t DEBOUNCE_INTERVAL_MS = 10;
 const uint8_t BUTTON_INPUT_MODE = INPUT;
 
 Buttons buttons(BUTTON_INPUT_MODE, DEBOUNCE_INTERVAL_MS);
+RFModule radio;
 
 CRGB leds[LED_COUNT];
 IRrecv ir(IR_RECV_PIN);
@@ -50,7 +52,6 @@ void setup() {
     FastLED.setBrightness(5);
 
     ir.enableIRIn();
-
     set_leds();
 }
 
@@ -89,6 +90,8 @@ void loop() {
                 // Do nothing if unknown
                 break;
         }
+        set_leds();
+        radio = RFModule();
     }
 }
 

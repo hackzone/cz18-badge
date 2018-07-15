@@ -2,7 +2,7 @@
 
 const uint8_t Buttons::BUTTON_PINS[BUTTON_COUNT] { A2, A3, A6, A7 };
 
-const uint8_t Button::SWITCH_READ_COUNT = 10;
+const uint8_t Button::SWITCH_READ_COUNT = 15;
 
 Button::Button() : Bounce()
 {
@@ -11,12 +11,19 @@ Button::Button() : Bounce()
 
 bool Button::readCurrentState()
 {
+  if(this->pin ==A2 || this->pin == A3){
+    return digitalRead(this->pin);
+    
+  }
   for(int16_t i = 0; i < Button::SWITCH_READ_COUNT; i++)
   {
-    if(analogRead(this->pin))
-    {
-      return false;
-    }
+    
+      if(analogRead(this->pin))
+      {
+        return false;
+      }
+    
+    
   }
   
   return true;
@@ -33,8 +40,14 @@ void Buttons::setup()
 {
   for(int32_t i = 0; i < Buttons::BUTTON_COUNT; ++i)
   {
-    this->buttons[i].attach(Buttons::BUTTON_PINS[i], this->pin_mode);
-    this->buttons[i].interval(this->debounce_ms);
+    if(i<2){
+      this->buttons[i].attach(Buttons::BUTTON_PINS[i], INPUT_PULLUP);
+      this->buttons[i].interval(this->debounce_ms);
+    }else{
+      this->buttons[i].attach(Buttons::BUTTON_PINS[i], this->pin_mode);
+      this->buttons[i].interval(this->debounce_ms);
+    }
+    
   }
 }
 
