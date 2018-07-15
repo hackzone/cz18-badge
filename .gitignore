@@ -3,3 +3,4 @@ firmware/firmware_orig
 firmware/firmware/cmake-build-debug
 firmware/cmake-build-debug
 /.vs
+firmware/.idea
