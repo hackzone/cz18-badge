@@ -68,7 +68,7 @@ typedef struct RFSlot
     int32_t command_value;
 } RFSlot;
 
-extern uint16_t badge_id();
-extern void increment_switchable(int *variable, int max_count);
+uint16_t badge_id();
+void increment_switchable(int *variable, int max_count);
 
 #endif

@@ -26,23 +26,23 @@ void Buttons::setup()
 
 Buttons::button_type Buttons::currently_pressed()
 {
-  int output = (int)Buttons::button_type::NONE;
+  int output = (int)Buttons::NONE;
   bool buttonstates[] = { false, false, false, false };
   
   for (int i = 0; i < Buttons::BUTTON_COUNT; ++i)
   {
-    buttonstates[i] = this->read_update_button(i);
+    buttonstates[i] = this->read_button_state(i);
   }
 
   for (int i = 0; i < Buttons::BUTTON_COUNT; ++i)
   {
     if(buttonstates[i])
     {
-      if (output != (int)Buttons::button_type::NONE)
+      if (output != (int)Buttons::NONE)
       {
         // Seen another pressed button already, so that's undefined behaviour
         DEBUG_PRINTLN("Received multiple button presses concurrently");
-        return Buttons::button_type::NONE;
+        return Buttons::NONE;
       }
 
       output = i;
@@ -70,8 +70,9 @@ bool Buttons::read_update_button(int bindex)
 
 bool Buttons::read_button_state(int bindex)
 {
-  for(int32_t i = 0; i < Buttons::SWITCH_READ_COUNT; i++)
+  for(int16_t i = 0; i < Buttons::SWITCH_READ_COUNT; i++)
   {
+//    DEBUG_PRINTLN(analogRead(Buttons::BUTTON_PINS[bindex]))
     if(analogRead(Buttons::BUTTON_PINS[bindex]))
     {
       return false;

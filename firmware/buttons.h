@@ -7,18 +7,19 @@ class Buttons {
   public:
     const static uint8_t BUTTON_COUNT = 4;
     const static uint8_t BUTTON_PINS[BUTTON_COUNT];
-    
+
     enum button_type {
-      MODE = 0,
-      SLOT,
-      LEARN,
-      PLAY,
-      NONE = -1
+        MODE = 0,
+        SLOT,
+        LEARN,
+        PLAY,
+        NONE = -1
     };
-    
+
     Buttons(int pin_mode, int debounce_ms, bool open_high);
     void setup();
-    button_type currently_pressed();
+    Buttons::button_type currently_pressed();
+
     
   private:
     const static uint8_t SWITCH_READ_COUNT;

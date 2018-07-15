@@ -44,19 +44,21 @@ void setup() {
 
 void loop() {
   Buttons::button_type read_button = buttons.currently_pressed();
-  if (read_button != Buttons::button_type::NONE) {
+  if (read_button != Buttons::NONE) {
     DEBUG_PRINT("Read button: ");
     DEBUG_PRINTLN(read_button);
 
     switch (read_button) {
-      case Buttons::button_type::MODE:
+      case Buttons::LEARN: // TODO: Remove this debug line!
+      case Buttons::MODE:
         increment_switchable(&module, MODULE_COUNT);
         slot = 0;
         DEBUG_PRINT("Switched to module #");
         DEBUG_PRINTLN(module);
         set_leds();
         break;
-      case Buttons::button_type::SLOT:
+      case Buttons::PLAY: // TODO: Remove this debug line!
+      case Buttons::SLOT:
         if (module == RF_MODULE || module == IR_MODULE) {
           increment_switchable(&slot, SLOT_COUNT);
           DEBUG_PRINT("Switched to slot #");
@@ -66,12 +68,16 @@ void loop() {
         }
         set_leds();
         break;
-      case Buttons::button_type::LEARN:
-        // TODO: Learn according to selected module
-        break;
-      case Buttons::button_type::PLAY:
-        // TODO: Play according to the selected module
-        break;
+//      case Buttons::LEARN:
+//        if(learn_routines[module]) {
+//            learn_routines[module](slot);
+//        }
+//        break;
+//      case Buttons::PLAY:
+//          if(play_routines[module]) {
+//              play_routines[module](slot);
+//          }
+//        break;
       default:
         // Do nothing if unknown
         break;
