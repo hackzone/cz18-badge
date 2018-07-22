@@ -29,7 +29,7 @@ bool Button::readCurrentState()
         rmin = cur;
       }
       // Artificially delay the process so as to get better readings
-      delayMicroseconds(50);
+      delayMicroseconds(150);
   }
   
   return (rmin == 0) && (rmax <= 10);

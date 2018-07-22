@@ -167,46 +167,48 @@ void ir_play(uint8_t slot) {
     uint32_t addr = ir_play_slot.address;
     uint32_t len = ir_play_slot.length;
 
-    DEBUG_PRINT("Sending IR: ");
-    DEBUG_PRINT(ir_play_slot.protocol);
-    DEBUG_PRINT(" ");
-    DEBUG_PRINT(val);
-    DEBUG_PRINT(" ");
-    DEBUG_PRINT(len);
-    DEBUG_PRINT(" ");
-    DEBUG_PRINTLN(addr);
-
-    switch (ir_play_slot.protocol) {
-        case AIWA_RC_T501:
-            ir_send.sendAiwaRCT501(val);
-            break;
-        case DENON:
-            ir_send.sendDenon(val, len);
-            break;
-        case JVC:
-            ir_send.sendJVC(val, len, false);
-            break;
-        case NEC:
-            ir_send.sendNEC(val, len);
-            break;
-        case PANASONIC:
-            ir_send.sendPanasonic(addr, val);
-            break;
-        case RC5:
-            ir_send.sendRC5(val, len);
-            break;
-        case RC6:
-            ir_send.sendRC6(val, len);
-            break;
-        case SAMSUNG:
-            ir_send.sendSAMSUNG(val, len);
-            break;
-        case SONY:
-            ir_send.sendSony(val, len);
-            break;
-        case WHYNTER:
-            ir_send.sendWhynter(val, len);
-            break;
+    if (ir_play_slot.used) {
+        DEBUG_PRINT("Sending IR: ");
+        DEBUG_PRINT(ir_play_slot.protocol);
+        DEBUG_PRINT(" ");
+        DEBUG_PRINT(val);
+        DEBUG_PRINT(" ");
+        DEBUG_PRINT(len);
+        DEBUG_PRINT(" ");
+        DEBUG_PRINTLN(addr);
+    
+        switch (ir_play_slot.protocol) {
+            case AIWA_RC_T501:
+                ir_send.sendAiwaRCT501(val);
+                break;
+            case DENON:
+                ir_send.sendDenon(val, len);
+                break;
+            case JVC:
+                ir_send.sendJVC(val, len, false);
+                break;
+            case NEC:
+                ir_send.sendNEC(val, len);
+                break;
+            case PANASONIC:
+                ir_send.sendPanasonic(addr, val);
+                break;
+            case RC5:
+                ir_send.sendRC5(val, len);
+                break;
+            case RC6:
+                ir_send.sendRC6(val, len);
+                break;
+            case SAMSUNG:
+                ir_send.sendSAMSUNG(val, len);
+                break;
+            case SONY:
+                ir_send.sendSony(val, len);
+                break;
+            case WHYNTER:
+                ir_send.sendWhynter(val, len);
+                break;
+        }
     }
 }
 
