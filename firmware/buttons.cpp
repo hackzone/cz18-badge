@@ -11,9 +11,9 @@ Button::Button() : Bounce()
 
 bool Button::readCurrentState()
 {
-  if(this->pin ==A2 || this->pin == A3){
-    return digitalRead(this->pin);
-    
+  if(this->pin == Buttons::BUTTON_PINS[0] || this->pin == Buttons::BUTTON_PINS[1])
+  {
+      return digitalRead(this->pin);
   }
   
   uint16_t rmax = 0, rmin = 1024;
@@ -36,8 +36,7 @@ bool Button::readCurrentState()
 }
 
 
-Buttons::Buttons(int pin_mode, int debounce_ms) :
-        pin_mode(pin_mode),
+Buttons::Buttons(int debounce_ms) :
         debounce_ms(debounce_ms)
 {
 }
@@ -46,20 +45,19 @@ void Buttons::setup()
 {
   for(int32_t i = 0; i < Buttons::BUTTON_COUNT; ++i)
   {
-    if(i<2){
+    if(i < 2) {
       this->buttons[i].attach(Buttons::BUTTON_PINS[i], INPUT_PULLUP);
       this->buttons[i].interval(this->debounce_ms);
-    }else{
-      this->buttons[i].attach(Buttons::BUTTON_PINS[i], this->pin_mode);
+    } else {
+      this->buttons[i].attach(Buttons::BUTTON_PINS[i], INPUT);
       this->buttons[i].interval(this->debounce_ms);
     }
-    
   }
 }
 
 Buttons::button_type Buttons::currently_pressed()
 {
-  int output = (int)Buttons::NONE;
+  int output = static_cast<int>(Buttons::NONE);
   
   for (int i = 0; i < Buttons::BUTTON_COUNT; ++i)
   {
@@ -74,6 +72,6 @@ Buttons::button_type Buttons::currently_pressed()
     }
   }
   
-  return (Buttons::button_type)output;
+  return static_cast<Buttons::button_type>(output);
 }
 

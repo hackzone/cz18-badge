@@ -6,13 +6,19 @@
 #include  "ir_protocols.h"
 #include "rfmodule.h"
 
+
 const uint8_t LED_DATA_PIN = 4;
 const uint8_t LED_COUNT = 7;
 
 const uint8_t DEBOUNCE_INTERVAL_MS = 10;
-const uint8_t BUTTON_INPUT_MODE = INPUT;
 
-Buttons buttons(BUTTON_INPUT_MODE, DEBOUNCE_INTERVAL_MS);
+void ir_learn(uint8_t slot);
+void ir_play(uint8_t slot);
+
+void (*learn_routines[])(uint8_t slot) = {&ir_learn, NULL, NULL};
+void (*play_routines[])(uint8_t slot) = {&ir_play, NULL, NULL};
+
+Buttons buttons(DEBOUNCE_INTERVAL_MS);
 RFModule radio;
 
 CRGB leds[LED_COUNT];
@@ -21,16 +27,8 @@ IRsend ir_send;
 IRSlot ir_play_slot;
 decode_results ir_results;
 
-uint8_t module = IR_MODULE;
+uint8_t module = RF_MODULE;
 uint8_t slot = 0;
-
-void ir_learn(uint8_t slot);
-
-void ir_play(uint8_t slot);
-
-void (*learn_routines[])(uint8_t slot) = {&ir_learn, NULL, NULL};
-
-void (*play_routines[])(uint8_t slot) = {&ir_play, NULL, NULL};
 
 void set_leds() {
     for (int i = 0; i < MODULE_COUNT; i++) {

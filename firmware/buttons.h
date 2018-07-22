@@ -26,12 +26,11 @@ class Buttons {
         NONE = -1
     };
 
-    Buttons(int pin_mode, int debounce_ms);
+    Buttons(int debounce_ms);
     void setup();
     Buttons::button_type currently_pressed();
     
   private:
-    uint8_t pin_mode;
     int debounce_ms;
     Button buttons[BUTTON_COUNT];
 };
