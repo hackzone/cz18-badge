@@ -58,11 +58,11 @@ const int IR_SEND_PIN = 3;
 const int IR_RECV_PIN = 7;
 
 typedef struct IRSlot {
-    bool used;
-    uint16_t protocol;
-    uint32_t address;
-    uint32_t length;
-    uint32_t value;
+    bool used; // 16
+    uint16_t protocol; // 17
+    uint32_t address; // 7
+    uint32_t length; // 11
+    uint32_t value; // 15
 } IRSlot;
 
 typedef struct RFSlot {

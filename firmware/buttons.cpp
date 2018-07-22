@@ -15,18 +15,24 @@ bool Button::readCurrentState()
     return digitalRead(this->pin);
     
   }
+  
+  uint16_t rmax = 0, rmin = 1024;
+  uint16_t cur = 0;
+  
   for(int16_t i = 0; i < Button::SWITCH_READ_COUNT; i++)
   {
-    
-      if(analogRead(this->pin))
-      {
-        return false;
+      cur = analogRead(this->pin);
+      if (cur > rmax) {
+        rmax = cur;
       }
-    
-    
+      if (cur < rmin) {
+        rmin = cur;
+      }
+      // Artificially delay the process so as to get better readings
+      delayMicroseconds(50);
   }
   
-  return true;
+  return (rmin == 0) && (rmax <= 10);
 }
 
 

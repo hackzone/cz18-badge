@@ -49,7 +49,7 @@ void setup() {
     buttons.setup();
 
     FastLED.addLeds<WS2812B, LED_DATA_PIN, GRB>(leds, LED_COUNT);
-    FastLED.setBrightness(5);
+    FastLED.setBrightness(100);
 
     ir.enableIRIn();
     set_leds();
@@ -103,6 +103,7 @@ void ir_learn(uint8_t slot) {
             irslot.value = ir_results.value;
             irslot.address = ir_results.address;
             irslot.protocol = ir_results.decode_type;
+            irslot.length = ir_results.bits;
             bool known = false;
             for (int i = 0; i < SUPPORTED_IR_PROTOCOLS_LEN; ++i) {
                 if (irslot.protocol == SUPPORTED_IR_PROTOCOLS[i]) {
@@ -111,6 +112,12 @@ void ir_learn(uint8_t slot) {
                 }
             }
             if (known) {
+                DEBUG_PRINT("Saving into IR slot: ");
+                DEBUG_PRINT(slot);
+                DEBUG_PRINT(" value: ");
+                DEBUG_PRINT(irslot.value);
+                DEBUG_PRINT(" mode: ");
+                DEBUG_PRINTLN(irslot.protocol);
                 eeprom_write_ir_slot(slot, &irslot);
             }
             ir.resume();
@@ -124,6 +131,16 @@ void ir_play(uint8_t slot) {
     uint32_t val = ir_play_slot.value;
     uint32_t addr = ir_play_slot.address;
     uint32_t len = ir_play_slot.length;
+
+    DEBUG_PRINT("Sending IR: ");
+    DEBUG_PRINT(ir_play_slot.protocol);
+    DEBUG_PRINT(" ");
+    DEBUG_PRINT(val);
+    DEBUG_PRINT(" ");
+    DEBUG_PRINT(len);
+    DEBUG_PRINT(" ");
+    DEBUG_PRINTLN(addr);
+
     switch (ir_play_slot.protocol) {
         case AIWA_RC_T501:
             ir_send.sendAiwaRCT501(val);
