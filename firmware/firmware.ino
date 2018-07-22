@@ -21,7 +21,7 @@ IRsend ir_send;
 IRSlot ir_play_slot;
 decode_results ir_results;
 
-uint8_t module = RF_MODULE;
+uint8_t module = IR_MODULE;
 uint8_t slot = 0;
 
 void ir_learn(uint8_t slot);
@@ -91,7 +91,6 @@ void loop() {
                 break;
         }
         set_leds();
-        radio = RFModule();
     }
 }
 
