@@ -14,12 +14,6 @@
 // You can get more RTTTL (RingTone Text Transfer Language) songs from
 // http://code.google.com/p/rogue-code/wiki/ToneLibraryDocumentation
 
-#define USE_TIMER0
-#undef USE_TIMER0
-#include <Tone.h>
-
-Tone tone1, tone2;
-
 #define OCTAVE_OFFSET 0
 #define isdigit(n) (n >= '0' && n <= '9')
 
@@ -39,8 +33,6 @@ const char PROGMEM song[] = {"MissionImp:d=16,o=6,b=95:32d,32d#,32d,32d#,32d,32d
 
 void sound_init()
 {
-    tone1.begin(5);
-    tone2.begin(10);
     pinMode(6, INPUT); // Set high impedance
     pinMode(9, INPUT); // Set high impedance
 }
