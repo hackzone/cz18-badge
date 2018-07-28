@@ -59,7 +59,9 @@ void eeprom_read_rf_slot(int slot_index, RFSlot * slot)
 {
     uint32_t address = eeprom_slot_address(RF_MODULE, slot_index);
     slot->used = (bool)eeprom_read_byte(address);
-    slot->command_value = (int32_t)eeprom_read_dword(address+1);
+    slot->protocol = (uint16_t)eeprom_read_word(address + 1);
+    slot->length = (uint16_t)eeprom_read_word(address + 3);
+    slot->command_value = (int32_t)eeprom_read_dword(address+7);
 }
 
 void eeprom_write_byte(int address, uint8_t value) {
@@ -83,4 +85,12 @@ void eeprom_write_ir_slot(int slot_index, IRSlot * slot) {
     eeprom_write_dword(address + 3, slot->address);
     eeprom_write_dword(address + 7, slot->length);
     eeprom_write_dword(address + 11, slot->value);
+}
+
+void eeprom_write_rf_slot(int slot_index, RFSlot *slot) {
+    uint32_t address = eeprom_slot_address(RF_MODULE, slot_index);
+    eeprom_write_byte(address, slot->used);
+    eeprom_write_word(address + 1, slot->protocol);
+    eeprom_write_word(address + 3, slot->length);
+    eeprom_write_dword(address + 7, slot->command_value);
 }

@@ -39,12 +39,16 @@
 #endif
 
 
-const uint8_t IR_MODULE = 0,
-        TUNE_MODULE = 1,
-        RF_MODULE = 2;
+#define IR_MODULE 0
+#define TUNE_MODULE 1
+#define RF_MODULE 2
 
-const uint8_t SLOT_COUNT = 4;
-const uint8_t MODULE_COUNT = 3;
+#define SLOT_COUNT 4
+#define MODULE_COUNT 3
+
+
+#define IR_SEND_PIN 3
+#define IR_RECV_PIN 7
 
 /**
  * EEPROM layout
@@ -52,11 +56,6 @@ const uint8_t MODULE_COUNT = 3;
  * 4x IRSlot
  * 4x RFSlot
  */
-
-
-const int IR_SEND_PIN = 3;
-const int IR_RECV_PIN = 7;
-
 typedef struct IRSlot {
     bool used; // 16
     uint16_t protocol; // 17
@@ -67,8 +66,13 @@ typedef struct IRSlot {
 
 typedef struct RFSlot {
     bool used;
+    uint16_t protocol;
+    uint32_t length;
     int32_t command_value;
 } RFSlot;
+
+extern uint8_t module;
+extern uint8_t slot;
 
 void increment_switchable(int *variable, int max_count);
 

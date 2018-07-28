@@ -24,5 +24,6 @@ void eeprom_write_byte(int address, uint8_t value);
 void eeprom_write_word(int address, uint16_t value);
 void eeprom_write_dword(int address, uint32_t value);
 void eeprom_write_ir_slot(int slot_index, IRSlot * slot);
+void eeprom_write_rf_slot(int slot_index, RFSlot * slot);
 
 #endif //FIRMWARE_EEPROM_H
