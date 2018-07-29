@@ -6,6 +6,7 @@
 #include "rfmodule.h"
 #include "ir.h"
 #include "sound.h"
+#include "cybers.h"
 
 
 #define DEBOUNCE_INTERVAL_MS 10
@@ -34,6 +35,8 @@ void setup() {
     ir_init();
     rf_init();
     set_leds(false, false);
+
+    cybercyber(&cybest);
 }
 
 void loop() {
