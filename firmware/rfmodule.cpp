@@ -92,13 +92,15 @@ bool rf_learn(uint8_t slot_index, bool reinit){
 void rf_play(uint8_t slot_index){
     RFSlot slot;
     eeprom_read_rf_slot(slot_index, &slot);
-    rcs.setProtocol(slot.protocol);
-
-    DEBUG_PRINT("Sending ");
-    DEBUG_PRINT(slot.command_value);
-    DEBUG_PRINT(" (");
-    DEBUG_PRINT(slot.length);
-    DEBUG_PRINTLN(")");
-
-    rcs.send(slot.command_value, slot.length);
+    if (slot.used) {
+      rcs.setProtocol(slot.protocol);
+  
+      DEBUG_PRINT("Sending ");
+      DEBUG_PRINT(slot.command_value);
+      DEBUG_PRINT(" (");
+      DEBUG_PRINT(slot.length);
+      DEBUG_PRINTLN(")");
+  
+      rcs.send(slot.command_value, slot.length);
+    }
 }
