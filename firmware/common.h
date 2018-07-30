@@ -38,13 +38,15 @@
 #  define DEBUG_PRINTLN(...)
 #endif
 
+#define LED_BRIGHTNESS 50
 
-#define IR_MODULE 0
-#define TUNE_MODULE 1
-#define RF_MODULE 2
+#define RF_MODULE 0
+#define IR_MODULE 1
+#define TUNE_MODULE 2
+#define TORCH_MODULE 3
 
 #define SLOT_COUNT 4
-#define MODULE_COUNT 3
+#define MODULE_COUNT 4
 
 
 #define IR_SEND_PIN 3

@@ -19,7 +19,7 @@ void (*play_routines[])(uint8_t slot) = {&ir_play, &sound_play, &rf_play};
 
 Buttons buttons(DEBOUNCE_INTERVAL_MS);
 
-uint8_t module = RF_MODULE;
+uint8_t module = IR_MODULE;
 uint8_t slot = 0;
 
 bool currently_learning = false;
@@ -30,7 +30,7 @@ void setup() {
     buttons.setup();
 
     FastLED.addLeds<WS2812B, LED_DATA_PIN, GRB>(leds, LED_COUNT);
-    FastLED.setBrightness(50);
+    FastLED.setBrightness(LED_BRIGHTNESS);
 
     ir_init();
     rf_init();
