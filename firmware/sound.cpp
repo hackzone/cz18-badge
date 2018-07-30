@@ -38,7 +38,7 @@ void sound_init()
 }
 
 void playz(uint8_t pin, uint16_t frequency) {
-    Serial.println('works');
+    DEBUG_PRINTLN("works");
 
     if(frequency == 0) {
         return analogWrite(pin, 0);
@@ -89,13 +89,13 @@ void playz(uint8_t pin, uint16_t frequency) {
     OCR1A = top;
     OCR1B = top;
 
-    Serial.print("Setting ");
-    Serial.print(pin);
-    Serial.print(" to ");
-    Serial.print(top);
-    Serial.print(" (");
-    Serial.print(frequency);
-    Serial.println(")");
+    DEBUG_PRINT("Setting ");
+    DEBUG_PRINT(pin);
+    DEBUG_PRINT(" to ");
+    DEBUG_PRINT(top);
+    DEBUG_PRINT(" (");
+    DEBUG_PRINT(frequency);
+    DEBUG_PRINTLN(")");
 
 //    analogWrite(pin, top);
 }
@@ -133,7 +133,7 @@ void play_rtttl(char *p)
         p++;                   // skip comma
     }
 
-    Serial.print("ddur: "); Serial.println(default_dur, 10);
+    DEBUG_PRINT("ddur: "); DEBUG_PRINTLN(default_dur, 10);
 
     // get default octave
     if(pgm_read_byte(p) == 'o')
@@ -144,7 +144,7 @@ void play_rtttl(char *p)
         p++;                   // skip comma
     }
 
-    Serial.print("doct: "); Serial.println(default_oct, 10);
+    DEBUG_PRINT("doct: "); DEBUG_PRINTLN(default_oct, 10);
 
     // get BPM
     if(pgm_read_byte(p) == 'b')
@@ -159,12 +159,12 @@ void play_rtttl(char *p)
         p++;                   // skip colon
     }
 
-    Serial.print("bpm: "); Serial.println(bpm, 10);
+    DEBUG_PRINT("bpm: "); DEBUG_PRINTLN(bpm, 10);
 
     // BPM usually expresses the number of quarter notes per minute
     wholenote = (60 * 1000L / bpm) * 4;  // this is the time for whole note (in milliseconds)
 
-    Serial.print("wn: "); Serial.println(wholenote, 10);
+    DEBUG_PRINT("wn: "); DEBUG_PRINTLN(wholenote, 10);
 
 
     // now begin note loop
@@ -246,12 +246,12 @@ void play_rtttl(char *p)
 
         if(note)
         {
-            Serial.print("Playing: ");
-            Serial.print(scale, 10); Serial.print(' ');
-            Serial.print(note, 10); Serial.print(" (");
-            Serial.print(notes[(scale - 4) * 12 + note], 10);
-            Serial.print(") ");
-            Serial.println(duration, 10);
+            DEBUG_PRINT("Playing: ");
+            DEBUG_PRINT(scale, 10); DEBUG_PRINT(' ');
+            DEBUG_PRINT(note, 10); DEBUG_PRINT(" (");
+            DEBUG_PRINT(notes[(scale - 4) * 12 + note], 10);
+            DEBUG_PRINT(") ");
+            DEBUG_PRINTLN(duration, 10);
             playz(10, notes[(scale - 4) * 12 + note]);
 //          tone2.play(notes[(scale - 4) * 12 - 5 + note]);
             delay(duration);
@@ -259,8 +259,8 @@ void play_rtttl(char *p)
         }
         else
         {
-            Serial.print("Pausing: ");
-            Serial.println(duration, 10);
+            DEBUG_PRINT("Pausing: ");
+            DEBUG_PRINTLN(duration, 10);
             delay(duration);
         }
     }
@@ -268,11 +268,14 @@ void play_rtttl(char *p)
 }
 
 bool sound_learn(uint8_t slot, bool reinit){
-    return false;
+    return true;
 }
 
 void sound_play(uint8_t slot){
     play_rtttl(cenfox);
+    analogWrite(6, 0);
+    analogWrite(9, 0);
+    
 //    tone2.stop();
 //    analogWrite(5, 512);
 //    analogWrite(6, 512);
