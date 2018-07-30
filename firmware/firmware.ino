@@ -14,8 +14,8 @@
 
 void play();
 void learn(bool starting);
-bool (*learn_routines[])(uint8_t slot, bool reinit) = {&ir_learn, &sound_learn, &rf_learn};
-void (*play_routines[])(uint8_t slot) = {&ir_play, &sound_play, &rf_play};
+bool (*learn_routines[])(uint8_t slot, bool reinit) = {&rf_learn, &ir_learn, &sound_learn};
+void (*play_routines[])(uint8_t slot) = {&rf_play, &ir_play, &sound_play};
 
 Buttons buttons(DEBOUNCE_INTERVAL_MS);
 
