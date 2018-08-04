@@ -4,6 +4,7 @@
 
 #include <avr/pgmspace.h>
 #include "sound.h"
+#include "leds.h" // for a call to update led-status
 
 // A fun sketch to demonstrate the use of the Tone library.
 
@@ -228,9 +229,14 @@ void play_rtttl(char *p)
       DEBUG_PRINT(notes[(scale - 4) * 12 + note], 10);
       DEBUG_PRINT(") ");
       DEBUG_PRINTLN(duration, 10);
+      // Set leds:
+      do_disco(note);
+      // Play note
       playz(10, notes[(scale - 4) * 12 + note]);
       //          tone2.play(notes[(scale - 4) * 12 - 5 + note]);
       delay(duration);
+      // Switch off leds:
+      do_disco(0);
       //  buzz(10,notes[(scale - 4) * 12 + note],duration);
       playz(10, 0);
     }
