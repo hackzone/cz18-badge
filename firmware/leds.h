@@ -13,5 +13,6 @@
 
 extern CRGB leds[LED_COUNT];
 void set_leds(bool learning, bool playing);
+void do_disco(int note);
 
 #endif //FIRMWARE_LEDS_H
